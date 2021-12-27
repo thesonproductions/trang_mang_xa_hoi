@@ -26,12 +26,12 @@
                     </ul>
                 </li>
                 <li class=" ">
-                    <a href="notification.html" class=" ">
+                    <a href="profiles.php" class=" ">
                         <i class="ri-profile-line"></i><span>Profiles</span>
                     </a>
                 </li>
                 <li class=" ">
-                    <a href="notification.html" class=" ">
+                    <a href="notification.php" class=" ">
                         <i class="ri-notification-4-line"></i><span>Notification</span>
                     </a>
                 </li>
@@ -41,7 +41,7 @@
 <!--                    </a>-->
 <!--                </li>-->
                 <li class=" ">
-                    <a href="https://templates.iqonic.design/socialv/bs5/html/dist/app/chat.html" class=" ">
+                    <a href="chat.php" class=" ">
                         <i class="ri-message-2-line"></i><span>Chat</span>
                     </a>
                 </li>

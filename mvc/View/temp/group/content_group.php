@@ -20,7 +20,7 @@
                         <img src="galleys/public/assets/images/page-img/g1.jpg" alt="profile-img" class="rounded-circle img-fluid avatar-120">
                     </div>
                     <div class="group-info pt-3 pb-3">
-                        <h4><a href="galleys/public/app/group-detail.html">Designer</a></h4>
+                        <h4><a href="group-details.php">Designer</a></h4>
                         <p>Lorem Ipsum data</p>
                     </div>
                     <div class="group-details d-inline-block pb-3">
