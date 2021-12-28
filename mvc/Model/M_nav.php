@@ -14,7 +14,7 @@ class M_nav extends database
 
     public function read_friend_list()
     {
-        $sql = "SELECT user.nick_name
+        $sql = "SELECT user.nick_name,user.avatar
                 FROM friends,user
                 WHERE friends.id_user = 1 AND friends.id_friends = user.id_user
                 ";

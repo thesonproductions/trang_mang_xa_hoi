@@ -1,11 +1,15 @@
-
+<?php include "mvc/Model/M_nav.php";
+$getUser = new M_nav();
+$user = $getUser->read_user();
+$friends = $getUser -> read_friend_list();
+?>
 <?php include_once "nav-menu-left.php"; ?>
 <div class="iq-top-navbar">
     <div class="iq-navbar-custom">
         <nav class="navbar navbar-expand-lg navbar-light p-0">
             <div class="iq-navbar-logo d-flex justify-content-between">
                 <a href="index.php">
-                    <img src="galleys/public/assets/images/logo2.png" class="img-fluid" alt="">
+                    <img src="galleys/public/assets/images/logo.png" class="img-fluid" alt="">
                     <span></span>
                 </a>
                 <div class="iq-menu-bt align-self-center">
@@ -286,17 +290,17 @@
                     <li class="nav-item dropdown">
                         <a href="#" class="   d-flex align-items-center dropdown-toggle" id="drop-down-arrow"
                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="galleys/public/assets/images/user/1.jpg" class="img-fluid rounded-circle me-3"
+                            <img src="galleys/picture-avatar/<?php echo $user[0]->avatar;?>" class="img-fluid rounded-circle me-3"
                                  alt="user">
                             <div class="caption">
-                                <h6 class="mb-0 line-height">Bni Cyst</h6>
+                                <h6 class="mb-0 line-height"><?php echo $user[0]->nick_name;?></h6>
                             </div>
                         </a>
                         <div class="sub-drop dropdown-menu caption-menu" aria-labelledby="drop-down-arrow">
                             <div class="card shadow-none m-0">
                                 <div class="card-header  bg-primary">
                                     <div class="header-title">
-                                        <h5 class="mb-0 text-white">Hello Bni Cyst</h5>
+                                        <h5 class="mb-0 text-white">Hello <?php echo $user[0]->nick_name;?></h5>
                                         <span class="text-white font-size-12">Available</span>
                                     </div>
                                 </div>
