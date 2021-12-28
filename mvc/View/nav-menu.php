@@ -9,7 +9,7 @@ $friends = $getUser -> read_friend_list();
         <nav class="navbar navbar-expand-lg navbar-light p-0">
             <div class="iq-navbar-logo d-flex justify-content-between">
                 <a href="index.php">
-                    <img src="galleys/public/assets/images/logo2.png" class="img-fluid" alt="">
+                    <img src="galleys/public/assets/images/logo.png" class="img-fluid" alt="">
                     <span></span>
                 </a>
                 <div class="iq-menu-bt align-self-center">
