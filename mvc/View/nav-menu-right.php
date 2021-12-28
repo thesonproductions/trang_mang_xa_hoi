@@ -3,15 +3,17 @@
         <div class="card shadow-none">
             <div class="card-body p-0">
                 <div class="media-height p-3" data-scrollbar="init">
+                    <?php foreach ($friends as $key => $value){ ?>
                     <div class="d-flex align-items-center mb-4">
                         <div class="iq-profile-avatar status-online">
-                            <img class="rounded-circle avatar-50" src="galleys/public/assets/images/user/01.jpg" alt="">
+                            <img class="rounded-circle avatar-50" src="galleys/picture-avatar/<?php echo $value->avatar; ?>" alt="">
                         </div>
                         <div class="ms-3">
-                            <h6 class="mb-0">Anna Sthesia Siestria</h6>
+                            <h6 class="mb-0"><?php echo $value->nick_name; ?></h6>
                             <p class="mb-0">Just Now</p>
                         </div>
                     </div>
+                    <?php } ?>
                     <div class="d-flex align-items-center">
                         <div class="iq-profile-avatar">
                             <img class="rounded-circle avatar-50" src="galleys/public/assets/images/user/02.jpg" alt="">
