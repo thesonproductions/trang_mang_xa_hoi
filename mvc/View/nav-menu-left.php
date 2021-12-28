@@ -358,21 +358,21 @@
                 <label style="margin: 10px 10px 0 0 ;border-width: 1.5px; border-style: solid none none none;border-color: #CED0D4 ;width: 100%">Nhóm của bạn</label>
             </div>
             <ul id="iq-sidebar-toggle" class="iq-menu">
-                <li class="">
-                    <a href="index.html" class=" ">
-                        <i class="ri-home-line"></i><span>Home</span>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="index.html" class=" ">
-                        <i class="ri-home-line"></i><span>Home</span>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="index.html" class=" ">
-                        <i class="ri-home-line"></i><span>Home</span>
-                    </a>
-                </li>
+<!--                <li class="">-->
+<!--                    <a href="index.html" class=" ">-->
+<!--                        <i class="ri-home-line"></i><span>Home</span>-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--                <li class="">-->
+<!--                    <a href="index.html" class=" ">-->
+<!--                        <i class="ri-home-line"></i><span>Home</span>-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--                <li class="">-->
+<!--                    <a href="index.html" class=" ">-->
+<!--                        <i class="ri-home-line"></i><span>Home</span>-->
+<!--                    </a>-->
+<!--                </li>-->
             </ul>
         </nav>
         <div class="p-5"></div>
