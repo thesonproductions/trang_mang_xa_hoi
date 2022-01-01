@@ -6,6 +6,7 @@ class C_profile
     }
     public function callIndex()
     {
-        require_once "mvc/View/temp/profiles/layout.php";
+        $view = "mvc/View/temp/profiles/profiles.php";
+        require_once "mvc/View/layout.php";
     }
 }

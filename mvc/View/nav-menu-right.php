@@ -3,7 +3,7 @@
         <div class="card shadow-none">
             <div class="card-body p-0">
                 <div class="media-height p-3" data-scrollbar="init">
-                    <?php foreach ($friends as $key => $value){ ?>
+                    <?php foreach ($friendList as $key => $value){ ?>
                     <div class="d-flex align-items-center mb-4">
                         <div class="iq-profile-avatar status-online">
                             <img class="rounded-circle avatar-50" src="galleys/picture-avatar/<?php echo $value->avatar; ?>" alt="">

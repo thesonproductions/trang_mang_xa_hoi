@@ -5,6 +5,7 @@ class C_friend_request{
     }
     public function callIndex()
     {
-        require_once "mvc/View/temp/friend-request/layout_friend-request.php";
+        $view = "mvc/View/temp/friend-request/content_friend-request.php";
+        require_once "mvc/View/layout.php";
     }
 }

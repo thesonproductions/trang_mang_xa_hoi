@@ -6,6 +6,7 @@ class C_home
     }
     public function callIndex()
     {
-       require_once "mvc/View/temp/home/layout.php";
+       $view = "mvc/View/temp/home/index.php";
+       include_once "mvc/View/layout.php";
     }
 }

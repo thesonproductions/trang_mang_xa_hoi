@@ -1,3 +1,4 @@
+<?php include "group-detail-header.php"?>
 <div id="content-page" class="content-page">
     <div class="container">
         <div class="row">
@@ -5,7 +6,7 @@
                 <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap">
                     <div class="group-info d-flex align-items-center">
                         <div class="me-3">
-                            <img class="rounded-circle img-fluid avatar-100" src="../assets/images/page-img/gi-1.jpg" alt="">
+                            <img class="rounded-circle img-fluid avatar-100" src="../../../../galleys/assets/images/page-img/gi-1.jpg" alt="">
                         </div>
                         <div class="info">
                             <h4>Developer's...</h4>
@@ -15,28 +16,28 @@
                     <div class="group-member d-flex align-items-center  mt-md-0 mt-2">
                         <div class="iq-media-group me-3">
                             <a href="#" class="iq-media">
-                                <img class="img-fluid avatar-40 rounded-circle" src="../assets/images/user/05.jpg" alt="">
+                                <img class="img-fluid avatar-40 rounded-circle" src="../../../../galleys/assets/images/user/05.jpg" alt="">
                             </a>
                             <a href="#" class="iq-media">
-                                <img class="img-fluid avatar-40 rounded-circle" src="../assets/images/user/06.jpg" alt="">
+                                <img class="img-fluid avatar-40 rounded-circle" src="../../../../galleys/assets/images/user/06.jpg" alt="">
                             </a>
                             <a href="#" class="iq-media">
-                                <img class="img-fluid avatar-40 rounded-circle" src="../assets/images/user/07.jpg" alt="">
+                                <img class="img-fluid avatar-40 rounded-circle" src="../../../../galleys/assets/images/user/07.jpg" alt="">
                             </a>
                             <a href="#" class="iq-media">
-                                <img class="img-fluid avatar-40 rounded-circle" src="../assets/images/user/08.jpg" alt="">
+                                <img class="img-fluid avatar-40 rounded-circle" src="../../../../galleys/assets/images/user/08.jpg" alt="">
                             </a>
                             <a href="#" class="iq-media">
-                                <img class="img-fluid avatar-40 rounded-circle" src="../assets/images/user/09.jpg" alt="">
+                                <img class="img-fluid avatar-40 rounded-circle" src="../../../../galleys/assets/images/user/09.jpg" alt="">
                             </a>
                             <a href="#" class="iq-media">
-                                <img class="img-fluid avatar-40 rounded-circle" src="../assets/images/user/10.jpg" alt="">
+                                <img class="img-fluid avatar-40 rounded-circle" src="../../../../galleys/assets/images/user/10.jpg" alt="">
                             </a>
                             <a href="#" class="iq-media">
-                                <img class="img-fluid avatar-40 rounded-circle" src="../assets/images/user/11.jpg" alt="">
+                                <img class="img-fluid avatar-40 rounded-circle" src="../../../../galleys/assets/images/user/11.jpg" alt="">
                             </a>
                             <a href="#" class="iq-media">
-                                <img class="img-fluid avatar-40 rounded-circle" src="../assets/images/user/12.jpg" alt="">
+                                <img class="img-fluid avatar-40 rounded-circle" src="../../../../galleys/assets/images/user/12.jpg" alt="">
                             </a>
                         </div>
                         <button type="submit" class="btn btn-primary mb-2"><i class="ri-add-line me-1"></i>Invite</button>
@@ -53,7 +54,7 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <div class="user-img">
-                                <img src="../assets/images/user/1.jpg" alt="userimg" class="avatar-60 rounded-circle">
+                                <img src="../../../../galleys/assets/images/user/1.jpg" alt="userimg" class="avatar-60 rounded-circle">
                             </div>
                             <form class="post-text ms-3 w-100 " data-bs-toggle="modal" data-bs-target="#post-modal" action="javascript:void();">
                                 <input type="text" class="form-control rounded" placeholder="Write something here..." style="border:none;">
@@ -61,9 +62,9 @@
                         </div>
                         <hr>
                         <ul class=" post-opt-block d-flex list-inline m-0 p-0 flex-wrap">
-                            <li class="bg-soft-primary rounded p-2 pointer d-flex align-items-center me-3 mb-md-0 mb-2"><img src="../assets/images/small/07.png" alt="icon" class="img-fluid me-2"> Photo/Video</li>
-                            <li class="bg-soft-primary rounded p-2 pointer d-flex align-items-center me-3 mb-md-0 mb-2"><img src="../assets/images/small/08.png" alt="icon" class="img-fluid me-2"> Tag Friend</li>
-                            <li class="bg-soft-primary rounded p-2 pointer d-flex align-items-center me-3"><img src="../assets/images/small/09.png" alt="icon" class="img-fluid me-2"> Feeling/Activity</li>
+                            <li class="bg-soft-primary rounded p-2 pointer d-flex align-items-center me-3 mb-md-0 mb-2"><img src="../../../../galleys/assets/images/small/07.png" alt="icon" class="img-fluid me-2"> Photo/Video</li>
+                            <li class="bg-soft-primary rounded p-2 pointer d-flex align-items-center me-3 mb-md-0 mb-2"><img src="../../../../galleys/assets/images/small/08.png" alt="icon" class="img-fluid me-2"> Tag Friend</li>
+                            <li class="bg-soft-primary rounded p-2 pointer d-flex align-items-center me-3"><img src="../../../../galleys/assets/images/small/09.png" alt="icon" class="img-fluid me-2"> Feeling/Activity</li>
                             <li class="bg-soft-primary rounded p-2 pointer text-center">
                                 <div class="card-header-toolbar d-flex align-items-center">
                                     <div class="dropdown">
@@ -92,7 +93,7 @@
                                 <div class="modal-body">
                                     <div class="d-flex align-items-center">
                                         <div class="user-img">
-                                            <img src="../assets/images/user/1.jpg" alt="userimg" class="avatar-60 rounded-circle img-fluid">
+                                            <img src="../../../../galleys/assets/images/user/1.jpg" alt="userimg" class="avatar-60 rounded-circle img-fluid">
                                         </div>
                                         <form class="post-text ms-3 w-100" action="javascript:void();">
                                             <input type="text" class="form-control rounded" placeholder="Write something here..." style="border:none;">
@@ -101,28 +102,28 @@
                                     <hr>
                                     <ul class="d-flex flex-wrap align-items-center list-inline m-0 p-0">
                                         <li class="col-md-6 mb-3">
-                                            <div class="bg-soft-primary rounded p-2 pointer me-3"><a href="#"></a><img src="../assets/images/small/07.png" alt="icon" class="img-fluid"> Photo/Video</div>
+                                            <div class="bg-soft-primary rounded p-2 pointer me-3"><a href="#"></a><img src="../../../../galleys/assets/images/small/07.png" alt="icon" class="img-fluid"> Photo/Video</div>
                                         </li>
                                         <li class="col-md-6 mb-3">
-                                            <div class="bg-soft-primary rounded p-2 pointer me-3"><a href="#"></a><img src="../assets/images/small/08.png" alt="icon" class="img-fluid"> Tag Friend</div>
+                                            <div class="bg-soft-primary rounded p-2 pointer me-3"><a href="#"></a><img src="../../../../galleys/assets/images/small/08.png" alt="icon" class="img-fluid"> Tag Friend</div>
                                         </li>
                                         <li class="col-md-6 mb-3">
-                                            <div class="bg-soft-primary rounded p-2 pointer me-3"><a href="#"></a><img src="../assets/images/small/09.png" alt="icon" class="img-fluid"> Feeling/Activity</div>
+                                            <div class="bg-soft-primary rounded p-2 pointer me-3"><a href="#"></a><img src="../../../../galleys/assets/images/small/09.png" alt="icon" class="img-fluid"> Feeling/Activity</div>
                                         </li>
                                         <li class="col-md-6 mb-3">
-                                            <div class="bg-soft-primary rounded p-2 pointer me-3"><a href="#"></a><img src="../assets/images/small/10.png" alt="icon" class="img-fluid"> Check in</div>
+                                            <div class="bg-soft-primary rounded p-2 pointer me-3"><a href="#"></a><img src="../../../../galleys/assets/images/small/10.png" alt="icon" class="img-fluid"> Check in</div>
                                         </li>
                                         <li class="col-md-6 mb-3">
-                                            <div class="bg-soft-primary rounded p-2 pointer me-3"><a href="#"></a><img src="../assets/images/small/11.png" alt="icon" class="img-fluid"> Live Video</div>
+                                            <div class="bg-soft-primary rounded p-2 pointer me-3"><a href="#"></a><img src="../../../../galleys/assets/images/small/11.png" alt="icon" class="img-fluid"> Live Video</div>
                                         </li>
                                         <li class="col-md-6 mb-3">
-                                            <div class="bg-soft-primary rounded p-2 pointer me-3"><a href="#"></a><img src="../assets/images/small/12.png" alt="icon" class="img-fluid"> Gif</div>
+                                            <div class="bg-soft-primary rounded p-2 pointer me-3"><a href="#"></a><img src="../../../../galleys/assets/images/small/12.png" alt="icon" class="img-fluid"> Gif</div>
                                         </li>
                                         <li class="col-md-6 mb-3">
-                                            <div class="bg-soft-primary rounded p-2 pointer me-3"><a href="#"></a><img src="../assets/images/small/13.png" alt="icon" class="img-fluid"> Watch Party</div>
+                                            <div class="bg-soft-primary rounded p-2 pointer me-3"><a href="#"></a><img src="../../../../galleys/assets/images/small/13.png" alt="icon" class="img-fluid"> Watch Party</div>
                                         </li>
                                         <li class="col-md-6 mb-3">
-                                            <div class="bg-soft-primary rounded p-2 pointer me-3"><a href="#"></a><img src="../assets/images/small/14.png" alt="icon" class="img-fluid"> Play with Friends</div>
+                                            <div class="bg-soft-primary rounded p-2 pointer me-3"><a href="#"></a><img src="../../../../galleys/assets/images/small/14.png" alt="icon" class="img-fluid"> Play with Friends</div>
                                         </li>
                                     </ul>
                                     <hr>
@@ -130,7 +131,7 @@
                                         <div class="d-flex align-items-center justify-content-between">
                                             <div class="d-flex align-items-center">
                                                 <div class="user-img me-3">
-                                                    <img src="../assets/images/user/1.jpg" alt="userimg" class="avatar-60 rounded-circle img-fluid">
+                                                    <img src="../../../../galleys/assets/images/user/1.jpg" alt="userimg" class="avatar-60 rounded-circle img-fluid">
                                                 </div>
                                                 <h6>Your Story</h6>
                                             </div>
@@ -193,7 +194,7 @@
                             <div class="user-post-data py-3">
                                 <div class="d-flex justify-content-between">
                                     <div class=" me-3">
-                                        <img class="rounded-circle img-fluid" src="../assets/images/user/04.jpg" alt="">
+                                        <img class="rounded-circle img-fluid" src="../../../../galleys/assets/images/user/04.jpg" alt="">
                                     </div>
                                     <div class="w-100">
                                         <div class="d-flex justify-content-between">
@@ -260,7 +261,7 @@
                                 </div>
                             </div>
                             <div class="user-post">
-                                <a href="javascript:void();"><img src="../assets/images/page-img/52.jpg" alt="post-image" class="img-fluid w-100"></a>
+                                <a href="javascript:void();"><img src="../../../../galleys/assets/images/page-img/52.jpg" alt="post-image" class="img-fluid w-100"></a>
                             </div>
                             <div class="comment-area mt-3">
                                 <div class="d-flex justify-content-between align-items-center flex-wrap">
@@ -269,16 +270,16 @@
                                             <div class="like-data">
                                                 <div class="dropdown">
                                                     <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
-                                                    <img src="../assets/images/icon/01.png" class="img-fluid" alt="">
+                                                    <img src="../../../../galleys/assets/images/icon/01.png" class="img-fluid" alt="">
                                                     </span>
                                                     <div class="dropdown-menu py-2">
-                                                        <a class="ms-2 me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Like" aria-label="Like"><img src="../assets/images/icon/01.png" class="img-fluid" alt=""></a>
-                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Love" aria-label="Love"><img src="../assets/images/icon/02.png" class="img-fluid" alt=""></a>
-                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Happy" aria-label="Happy"><img src="../assets/images/icon/03.png" class="img-fluid" alt=""></a>
-                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="HaHa" aria-label="HaHa"><img src="../assets/images/icon/04.png" class="img-fluid" alt=""></a>
-                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Think" aria-label="Think"><img src="../assets/images/icon/05.png" class="img-fluid" alt=""></a>
-                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Sade" aria-label="Sade"><img src="../assets/images/icon/06.png" class="img-fluid" alt=""></a>
-                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Lovely" aria-label="Lovely"><img src="../assets/images/icon/07.png" class="img-fluid" alt=""></a>
+                                                        <a class="ms-2 me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Like" aria-label="Like"><img src="../../../../galleys/assets/images/icon/01.png" class="img-fluid" alt=""></a>
+                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Love" aria-label="Love"><img src="../../../../galleys/assets/images/icon/02.png" class="img-fluid" alt=""></a>
+                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Happy" aria-label="Happy"><img src="../../../../galleys/assets/images/icon/03.png" class="img-fluid" alt=""></a>
+                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="HaHa" aria-label="HaHa"><img src="../../../../galleys/assets/images/icon/04.png" class="img-fluid" alt=""></a>
+                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Think" aria-label="Think"><img src="../../../../galleys/assets/images/icon/05.png" class="img-fluid" alt=""></a>
+                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Sade" aria-label="Sade"><img src="../../../../galleys/assets/images/icon/06.png" class="img-fluid" alt=""></a>
+                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Lovely" aria-label="Lovely"><img src="../../../../galleys/assets/images/icon/07.png" class="img-fluid" alt=""></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -326,7 +327,7 @@
                                     <li class="mb-2">
                                         <div class="d-flex">
                                             <div class="user-img">
-                                                <img src="../assets/images/user/02.jpg" alt="userimg" class="avatar-35 rounded-circle img-fluid">
+                                                <img src="../../../../galleys/assets/images/user/02.jpg" alt="userimg" class="avatar-35 rounded-circle img-fluid">
                                             </div>
                                             <div class="comment-data-block ms-3">
                                                 <h6>Monty Carlo</h6>
@@ -343,7 +344,7 @@
                                     <li>
                                         <div class="d-flex">
                                             <div class="user-img">
-                                                <img src="../assets/images/user/03.jpg" alt="userimg" class="avatar-35 rounded-circle img-fluid">
+                                                <img src="../../../../galleys/assets/images/user/03.jpg" alt="userimg" class="avatar-35 rounded-circle img-fluid">
                                             </div>
                                             <div class="comment-data-block ms-3">
                                                 <h6>Paul Molive</h6>
@@ -372,7 +373,7 @@
                             <div class="user-post-data py-3">
                                 <div class="d-flex justify-content-between">
                                     <div class="media-support-user-img me-3">
-                                        <img class="rounded-circle img-fluid" src="../assets/images/user/01.jpg" alt="">
+                                        <img class="rounded-circle img-fluid" src="../../../../galleys/assets/images/user/01.jpg" alt="">
                                     </div>
                                     <div class="w-100">
                                         <div class="d-flex justify-content-between">
@@ -440,7 +441,7 @@
                                 </div>
                             </div>
                             <div class="user-post">
-                                <a href="javascript:void();"><img src="../assets/images/page-img/60.jpg" alt="post-image" class="img-fluid w-100"></a>
+                                <a href="javascript:void();"><img src="../../../../galleys/assets/images/page-img/60.jpg" alt="post-image" class="img-fluid w-100"></a>
                             </div>
                             <div class="comment-area mt-3">
                                 <div class="d-flex justify-content-between align-items-center flex-wrap">
@@ -449,16 +450,16 @@
                                             <div class="like-data">
                                                 <div class="dropdown">
                                                     <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
-                                                    <img src="../assets/images/icon/01.png" class="img-fluid" alt="">
+                                                    <img src="../../../../galleys/assets/images/icon/01.png" class="img-fluid" alt="">
                                                     </span>
                                                     <div class="dropdown-menu py-2">
-                                                        <a class="ms-2 me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Like" aria-label="Like"><img src="../assets/images/icon/01.png" class="img-fluid" alt=""></a>
-                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Love" aria-label="Love"><img src="../assets/images/icon/02.png" class="img-fluid" alt=""></a>
-                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Happy" aria-label="Happy"><img src="../assets/images/icon/03.png" class="img-fluid" alt=""></a>
-                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="HaHa" aria-label="HaHa"><img src="../assets/images/icon/04.png" class="img-fluid" alt=""></a>
-                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Think" aria-label="Think"><img src="../assets/images/icon/05.png" class="img-fluid" alt=""></a>
-                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Sade" aria-label="Sade"><img src="../assets/images/icon/06.png" class="img-fluid" alt=""></a>
-                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Lovely" aria-label="Lovely"><img src="../assets/images/icon/07.png" class="img-fluid" alt=""></a>
+                                                        <a class="ms-2 me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Like" aria-label="Like"><img src="../../../../galleys/assets/images/icon/01.png" class="img-fluid" alt=""></a>
+                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Love" aria-label="Love"><img src="../../../../galleys/assets/images/icon/02.png" class="img-fluid" alt=""></a>
+                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Happy" aria-label="Happy"><img src="../../../../galleys/assets/images/icon/03.png" class="img-fluid" alt=""></a>
+                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="HaHa" aria-label="HaHa"><img src="../../../../galleys/assets/images/icon/04.png" class="img-fluid" alt=""></a>
+                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Think" aria-label="Think"><img src="../../../../galleys/assets/images/icon/05.png" class="img-fluid" alt=""></a>
+                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Sade" aria-label="Sade"><img src="../../../../galleys/assets/images/icon/06.png" class="img-fluid" alt=""></a>
+                                                        <a class="me-2" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Lovely" aria-label="Lovely"><img src="../../../../galleys/assets/images/icon/07.png" class="img-fluid" alt=""></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -506,7 +507,7 @@
                                     <li class="mb-2">
                                         <div class="d-flex ">
                                             <div class="user-img">
-                                                <img src="../assets/images/user/02.jpg" alt="userimg" class="avatar-35 rounded-circle img-fluid">
+                                                <img src="../../../../galleys/assets/images/user/02.jpg" alt="userimg" class="avatar-35 rounded-circle img-fluid">
                                             </div>
                                             <div class="comment-data-block ms-3">
                                                 <h6>Monty Carlo</h6>
@@ -523,7 +524,7 @@
                                     <li>
                                         <div class="d-flex ">
                                             <div class="user-img">
-                                                <img src="../assets/images/user/03.jpg" alt="userimg" class="avatar-35 rounded-circle img-fluid">
+                                                <img src="../../../../galleys/assets/images/user/03.jpg" alt="userimg" class="avatar-35 rounded-circle img-fluid">
                                             </div>
                                             <div class="comment-data-block ms-3">
                                                 <h6>Paul Molive</h6>
