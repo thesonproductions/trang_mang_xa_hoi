@@ -6,6 +6,7 @@ class C_privacy
     }
     public function callIndex()
     {
-        require_once "mvc/View/temp/privacy/layout.php";
+        $view = "mvc/View/temp/privacy/privacy.php";
+        require_once "mvc/View/layout.php";
     }
 }

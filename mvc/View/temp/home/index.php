@@ -1,5 +1,5 @@
 <div id="content-page" class="content-page">
-    <div class="container">
+    <div class="container" style="max-width: 1124px;">
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-8 row m-0 p-0">

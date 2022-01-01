@@ -6,6 +6,7 @@ class C_account_setting
     }
     public function callIndex()
     {
-        require_once "mvc/View/temp/account-setting/layout.php";
+        $view = "mvc/View/temp/account-setting/account-setting.php";
+        require_once "mvc/View/layout.php";
     }
 }

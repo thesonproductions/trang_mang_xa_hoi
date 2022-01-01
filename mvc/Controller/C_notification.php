@@ -5,6 +5,7 @@ class C_notification{
     }
     public function callIndex()
     {
-        require_once "mvc/View/temp/notification/layout_noti.php";
+        $view = "mvc/View/temp/notification/content_noti.php";
+        require_once "mvc/View/layout.php";
     }
 }

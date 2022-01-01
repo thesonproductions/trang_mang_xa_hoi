@@ -6,6 +6,7 @@ class C_edit_profile
     }
     public function callIndex()
     {
-        require_once "mvc/View/temp/edit-profile/layout.php";
+        $view = "mvc/View/temp/edit-profile/edit-profile.php";
+        require_once "mvc/View/layout.php";
     }
 }

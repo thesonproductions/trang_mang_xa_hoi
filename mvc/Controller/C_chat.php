@@ -5,6 +5,7 @@ class C_chat{
     }
     public function callIndex()
     {
-        require_once "mvc/View/temp/chat/layout_chat.php";
+        $view = "mvc/View/temp/chat/content_chat.php";
+        require_once "mvc/View/layout.php";
     }
 }
