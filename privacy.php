@@ -1,4 +1,4 @@
 <?php
-require("mvc/Controller/C_privacy.php");
-$home = new C_privacy();
-$home->callIndex();
+require("mvc/Controllers/PrivacyController.php");
+$home = new Privacy();
+$home->index();

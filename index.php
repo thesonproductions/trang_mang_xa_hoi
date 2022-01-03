@@ -1,4 +1,4 @@
 <?php
-require ("mvc/Controller/C_home.php");
-$home = new C_home();
-$home->callIndex();
+require ("mvc/Controllers/HomeController.php");
+$home = new Home();
+$home->index();
