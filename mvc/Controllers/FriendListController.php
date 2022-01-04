@@ -1,5 +1,5 @@
 <?php
-include  "mvc/Models/FriendListModel.php";
+include  "mvc/Models/FriendList.php";
 class FriendList{
     public function __construct()
     {

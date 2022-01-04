@@ -1,5 +1,5 @@
 <?php
-include("mvc/Models/NavbarModel.php");
+include("mvc/Models/Navbar.php");
 class Nav
 {
     public function __construct()

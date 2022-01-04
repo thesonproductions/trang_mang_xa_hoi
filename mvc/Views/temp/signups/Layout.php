@@ -1,3 +1,3 @@
 <?php
-require "mvc/View/head.php";
-require "mvc/View/body.php";
+require "mvc/Views/Header.php";
+require "mvc/Views/Body.php";

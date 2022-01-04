@@ -1,6 +1,6 @@
 <!-- loader END -->
 
-<?php include "mvc/View/temp/login/slick-file.php"; ?>
+<?php include "mvc/Views/temp/logins/SlickSliderContent.php"; ?>
 <div class="col-md-6 bg-white pt-5 pt-5 pb-lg-0 pb-5">
     <div class="sign-in-from">
         <h1 class="mb-0">Sign Up</h1>
@@ -8,30 +8,30 @@
         <form class="mt-4" method="POST">
             <div class="row form-group">
                 <div class="col">
-                    <input type="text" class="form-control mb-0" placeholder="First name" class="f_name" name="f_name">
+                    <input type="text" class="form-control mb-0" placeholder="First name" class="f_name" name="f_name" required>
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control mb-0" placeholder="Last name" class="l_name" name="l_name">
+                    <input type="text" class="form-control mb-0" placeholder="Last name" class="l_name" name="l_name" required>
                 </div>
             </div>
             <div class="form-group">
-                <input type="email" class="form-control mb-0" id="email" name="email" placeholder="Enter email">
+                <input type="email" class="form-control mb-0" id="email" name="email" placeholder="Enter email" required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control mb-0" id="passwords" name="passwords" placeholder="Password">
+                <input type="password" class="form-control mb-0" id="passwords" name="passwords" placeholder="Password" required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control mb-0" id="address" name="address" placeholder="Your address">
+                <input type="text" class="form-control mb-0" id="address" name="address" placeholder="Your address" required>
             </div>
             <div class="row form-group">
                 <div class="col-md-8">
                     <label class="form-label" for="birthday">date of birth</label>
-                    <input type="date" class="form-control" placeholder="Your birthday" id="birthday" name="birthday">
+                    <input type="date" class="form-control" placeholder="Your birthday" id="birthday" name="birthday" required>
                 </div>
                 <div class="col-md-4 ">
                     <label class="form-label" for="gender">gender</label>
-                    <select class="form-control" id="gender" name="gender">
-                        <option value="0">--choose--</option>
+                    <select class="form-control" id="gender" name="gender" required>
+                        <option>--choose--</option>
                         <option value="M">Male</option>
                         <option value="F">FeMale</option>
                         <option value="O">Orther</option>
@@ -56,31 +56,7 @@
         </form>
     </div>
 </div>
-</div>
-</div>
+
 </section>
 </div>
-
-<!-- Backend Bundle JavaScript -->
-<script src="galleys/public/assets/js/libs.min.js"></script>
-<!-- slider JavaScript -->
-<script src="galleys/public/assets/js/slider.js"></script>
-<!-- masonry JavaScript -->
-<script src="galleys/public/assets/js/masonry.pkgd.min.js"></script>
-<!-- SweetAlert JavaScript -->
-<script src="galleys/public/assets/js/enchanter.js"></script>
-<!-- SweetAlert JavaScript -->
-<script src="galleys/public/assets/js/sweetalert.js"></script>
-<!-- Chart Custom JavaScript -->
-<script src="galleys/public/assets/js/customizer.js"></script>
-<!-- app JavaScript -->
-<script src="galleys/public/assets/js/charts/weather-chart.js"></script>
-<script src="galleys/public/assets/js/app.js"></script>
-<script src="galleys/public/vendor/vanillajs-datepicker/dist/js/datepicker.min.html"></script>
-<script src="galleys/public/assets/js/lottie.js"></script>
-
-</body>
-
-<!-- Mirrored from templates.iqonic.design/socialv/bs5/html/dist/dashboard/sign-up.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 29 Nov 2021 09:09:55 GMT -->
-
-</html>
+<?php include "mvc/Views/temp/logins/Footer.php"; ?>

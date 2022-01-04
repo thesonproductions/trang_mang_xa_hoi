@@ -11,3 +11,4 @@ class AccountSetting
         require_once "mvc/Views/Layout.php";
     }
 }
+?>

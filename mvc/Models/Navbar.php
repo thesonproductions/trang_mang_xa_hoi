@@ -1,5 +1,5 @@
 <?php
-require_once "database.php";
+require_once "mvc/Core/database.php";
 
 class Navbar extends database
 {

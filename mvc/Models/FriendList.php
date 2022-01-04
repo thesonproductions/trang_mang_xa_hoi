@@ -1,5 +1,5 @@
 <?php
-require_once "database.php";
+require_once "mvc/Core/database.php";
 class FriendList extends database {
     // tất cả cái gì liên quan đến truy vấn database
     public function readFriendList(){
