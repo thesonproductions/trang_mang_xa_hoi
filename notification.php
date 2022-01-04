@@ -1,4 +1,4 @@
 <?php
-require ("mvc/Controller/C_notification.php");
-$home = new C_notification();
-$home->callIndex();
+require ("mvc/Controllers/NotificationController.php");
+$home = new Notification();
+$home->index();

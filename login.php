@@ -1,5 +1,5 @@
 <?php
-include "mvc/Controller/C_login.php";
-$login = new C_log();
-$login->callIndex();
+include "mvc/Controllers/LoginController.php";
+$login = new Login();
+$login->index();
 ?>

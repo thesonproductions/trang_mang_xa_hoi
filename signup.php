@@ -1,5 +1,5 @@
 <?php
-include "mvc/Controller/C_signup.php";
-$callSignup = new C_signup();
-$callSignup->callIndex();
+include "mvc/Controllers/SignupController.php";
+$callSignup = new Signup();
+$callSignup->index();
 ?>

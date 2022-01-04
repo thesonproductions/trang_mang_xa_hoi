@@ -1,4 +1,4 @@
 <?php
-require ("mvc/Controller/C_group.php");
-$home = new C_group();
-$home->callIndex();
+require ("mvc/Controllers/GroupController.php");
+$home = new Group();
+$home->index();
