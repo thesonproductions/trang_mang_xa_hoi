@@ -1,4 +1,5 @@
 <?php
-require ("mvc/Controllers/HomeController.php");
-$home = new Home();
-$home->index();
+session_start();
+require_once "mvc/Bridge.php";
+$myApp = new App();
+?>
