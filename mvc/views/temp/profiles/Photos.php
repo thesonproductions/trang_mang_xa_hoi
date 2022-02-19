@@ -1,7 +1,7 @@
 
 <div class="theme-layout">
-
-    <?php include "mvc/views/temp/profiles.php"; ?>
+    <?php include "mvc/views/temp/TopBar.php"; ?>
+    <?php include "mvc/views/temp/Profiles.php"; ?>
     <!-- responsive header -->
 
 

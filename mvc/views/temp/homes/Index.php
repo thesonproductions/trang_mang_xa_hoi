@@ -9,8 +9,16 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row" id="page-contents">
-                            <?php include "mvc/views/temp/LeftBar.php"; ?>
-                            <!-- sidebar -->
+                            <div class="col-lg-3">
+                                <aside class="sidebar static">
+                                    <?php include "mvc/views/temp/Shortcuts.php"; ?>
+                                    <!-- Shortcuts -->
+
+                                    <!-- recent activites -->
+
+                                    <!-- who's following -->
+                                </aside>
+                            </div>
                             <div class="col-lg-6">
                                 <div class="central-meta bdradius">
                                     <div class="new-postbox">
@@ -627,7 +635,15 @@
                                 </div>
                             </div>
                             <!-- centerl meta -->
-                            <?php include "mvc/views/temp/RightBar.php"; ?>
+
+                            <div class="col-lg-3">
+                                <aside class="sidebar static">
+                                    <?php include "mvc/views/temp/RecentlyActivity.php"; ?>
+                                    <?php include "mvc/views/temp/FriendSuggest.php"; ?>
+                                    <?php include "mvc/views/temp/FriendList.php"; ?>
+                                    <!-- friends list sidebar -->
+                                </aside>
+                            </div>
                         </div>
                     </div>
                 </div>

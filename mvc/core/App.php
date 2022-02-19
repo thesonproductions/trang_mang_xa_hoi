@@ -1,8 +1,8 @@
 <?php
 // xử lí url, gọi controller,model,view
 class App{
-    protected $controller = "HomeController"; // ten class
-    protected $action = "index"; // ten function
+    protected $controller = 'HomeController'; // ten class
+    protected $action = 'index'; // ten function
     protected $params = [];
     public function __construct()
     {
@@ -33,7 +33,7 @@ class App{
     public function urlProcess(){
         if (isset($_GET['url'])){
             $url = $_GET["url"];
-            return explode("/",filter_var(trim($url,"/"))); // xoa bo khoang trang o dau ca cuoi cua url
+            return array_values(array_filter(explode('/',$url))); // xoa bo khoang trang o dau ca cuoi cua url
         }
     }
 }

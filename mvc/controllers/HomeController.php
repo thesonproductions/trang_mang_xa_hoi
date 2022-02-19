@@ -1,11 +1,14 @@
 <?php
-include "BaseController.php";
-class HomeController extends BaseController {
+include "Controller.php";
+class HomeController extends Controller {
     public function __construct()
     {
         parent::__construct();
     }
     public function index(){
-        $this->view("homes/Index");
+        $view = "homes/Index";
+        $this->view($view,[
+
+        ]);
     }
 }

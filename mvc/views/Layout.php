@@ -1,4 +1,4 @@
 <?php
-include "mvc/views/temp/Header.php";
-include "mvc/views/temp/Body.php";
-include "mvc/views/temp/Footer.php";
+include "mvc/views/Header.php";
+include "mvc/views/Body.php";
+include "mvc/views/Footer.php";

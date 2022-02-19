@@ -4,4 +4,8 @@
 // xử lí các điều kiện
 
 require_once "core/App.php";
-
+//if (isset($_POST['btnLogin'])){
+//    echo '<pre>';
+//    echo print_r($_POST);
+//    die();
+//}

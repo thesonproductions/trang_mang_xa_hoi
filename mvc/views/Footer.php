@@ -1,4 +1,3 @@
-
 <!-- footer -->
 <div class="bottombar">
     <div class="container">
@@ -76,11 +75,11 @@
 </div>
 <!-- side panel -->
 
-<script data-cfasync="false" src="../../public/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script src="public/js/main.min.js"></script>
-<script src="public/js/script.js"></script>
-<script src="public/js/map-init.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
+<!--<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>-->
+<script type="text/javascript" src="public/js/main.min.js"></script>
+<script type="text/javascript" src="public/js/script.js"></script>
+<!--<script type="text/javascript" src="public/js/map-init.js"></script>-->
+<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>-->
 
 </body>
 

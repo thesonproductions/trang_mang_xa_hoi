@@ -7,6 +7,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <title>Winku Social Network Toolkit</title>
+    <base href="http://localhost/finalexam/trang_mang_xa_hoi/">
     <link rel="icon" href="public/images/fav.png" type="image/png" sizes="16x16">
 
     <link rel="stylesheet" href="public/css/main.min.css">
