@@ -1,6 +1,6 @@
 <?php
-include 'Controller.php';
-class LoginController extends Controller{
+include 'BaseController.php';
+class LoginController extends BaseController{
     public function __construct()
     {
         parent::__construct();

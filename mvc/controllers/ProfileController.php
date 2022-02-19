@@ -1,6 +1,6 @@
 <?php
-include "Controller.php";
-class ProfileController extends Controller{
+include "BaseController.php";
+class ProfileController extends BaseController{
     public function __construct()
     {
         parent::__construct();

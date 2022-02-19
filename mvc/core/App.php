@@ -9,7 +9,9 @@ class App{
         $url = $this->urlProcess();
 
          //[0]=>Home [1] => index .........
-
+//        echo "<pre>";
+//        echo print_r($_GET);
+//        die();
         if (file_exists("mvc/controllers/".$url[0]."Controller.php")){
             $this->controller = ucfirst($url[0]."Controller");
             unset($url[0]);
@@ -27,7 +29,7 @@ class App{
         // xu li params
         $this->params = $url ? array_values($url) : [];
 
-        call_user_func_array([$this->controller,$this->action],$this->params);
+        call_user_func_array([$this->controller, $this->action], $this->params );
 
     }
     public function urlProcess(){

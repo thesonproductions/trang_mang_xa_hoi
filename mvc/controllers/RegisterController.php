@@ -1,6 +1,6 @@
 <?php
-include "Controller.php";
-class RegisterController extends Controller{
+include "BaseController.php";
+class RegisterController extends BaseController{
     public function __construct()
     {
         parent::__construct();

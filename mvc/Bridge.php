@@ -9,3 +9,6 @@ require_once "core/App.php";
 //    echo print_r($_POST);
 //    die();
 //}
+//if (!isset($_SESSION['email']) || !isset($_SESSION['password'])){
+//    header('location: Login');
+//}
