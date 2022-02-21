@@ -75,3 +75,7 @@
 .form-group>a:hover{
     color: #0b567d;
 }
+#register{
+    pointer-events: auto;
+    color: #0a98dc;
+}

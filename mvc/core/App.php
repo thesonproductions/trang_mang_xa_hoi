@@ -6,11 +6,21 @@ class App{
     protected $params = [];
     public function __construct()
     {
+
         $url = $this->urlProcess();
 
-         //[0]=>Home [1] => index .........
+        if (isset($_SESSION['email']) || isset($_COOKIE['email'])){
+            $this->callUrl($url);
+        } else {
+            $url[0] = 'Signin';
+            $this->callUrl($url);
+        }
+
+    }
+    public function callUrl($url){
+        //         //[0]=>Home [1] => photos .........
 //        echo "<pre>";
-//        echo print_r($_GET);
+//        echo print_r($url);
 //        die();
         if (file_exists("mvc/controllers/".$url[0]."Controller.php")){
             $this->controller = ucfirst($url[0]."Controller");
@@ -30,7 +40,6 @@ class App{
         $this->params = $url ? array_values($url) : [];
 
         call_user_func_array([$this->controller, $this->action], $this->params );
-
     }
     public function urlProcess(){
         if (isset($_GET['url'])){

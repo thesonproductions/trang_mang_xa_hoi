@@ -21,7 +21,7 @@
 <div class="theme-layout">
     <div class="topbar transparent">
         <div class="logo">
-            <a title="" href="newsfeed.html"><img src="public/images/logo2.png" alt=""></a>
+            <a title="" href="index.php"><img src="public/images/logo2.png" alt=""></a>
         </div>
 
     </div><!-- topbar transparent header -->
@@ -128,7 +128,6 @@
 <script type="text/javascript" src="public/js/sweetalert2.all.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-
         $('#signup').on('submit',function (e) {
 
             e.preventDefault()
@@ -144,7 +143,7 @@
             if (validForm()){
                 $.ajax({
                     type: 'POST',
-                    url: 'Register/signup',
+                    url: 'Signin/signup',
                     data: {email: email, password: password, username: username, fname: fname, lname: lname,gender: gender},
                     cache:false,
                     dataType: 'json',
@@ -164,7 +163,7 @@
                                 showConfirmButton: false,
                                 timer: 1500
                             }).then(function() {
-                                window.location = "Login";
+                                window.location = "Signin";
                             });
                         } else {
                             $('.form-message').css('display','block')

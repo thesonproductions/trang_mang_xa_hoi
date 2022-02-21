@@ -21,7 +21,7 @@
 <div class="theme-layout">
     <div class="topbar transparent">
         <div class="logo">
-            <a title="" href="newsfeed.html"><img src="public/images/logo2.png" alt=""></a>
+            <a title="" href="index.php"><img src="public/images/logo2.png" alt=""></a>
         </div>
 
     </div><!-- topbar transparent header -->
@@ -49,9 +49,8 @@
             <div class="row">
                 <div class="form-side-login bdradius">
                     <h1 style="text-align: center;">LOGIN NOW</h1>
-                    <div class="form-message"></div>
-                    <form method="POST" id="signin">
-
+                    <div class="form-message" style="display: block!important;"><?php if (isset($_COOKIE['error_message'])){echo '<p style="display: block">'.$_COOKIE['error_message'].'</p>';}?></div>
+                    <form method="POST" id="signin" action="Signin/signin">
                         <div class="form-group">
                             <label>Email Address:</label>
                             <input type="email" name="email" id="email" class="form-control input-style-login" placeholder="Enter email">
@@ -68,7 +67,7 @@
                             <input type="submit" name="btnLogin" id="btnLogin" class="btn btn-success" value="Login Now">
                         </div>
                         <div class="form-group" style="text-align: center">
-                            <a href="#">Forgot your Password?</a> Or <a href="Register">Register Now</a>
+                            <a href="#">Forgot your Password?</a> Or <a href="Signin/register" >Register Now</a>
                         </div>
 
                     </form>
@@ -76,7 +75,6 @@
             </div>
         </div>
     </section>
-
     <section>
         <div class="gap no-gap bluesh high-opacity btm-mockup">
             <div class="content-bg-wrap" style="background: url(public/images/resources/btm-banner.png)"></div>
@@ -104,44 +102,16 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#signin').on('submit',function (event) {
-            event.preventDefault();
-            var email = $('#email').val();
-            var password = $('#password').val();
-            var remember_me = $('#remember_me').is(':checked');
-            console.log({email: email, password: password,remember_me:remember_me})
-            if (validForm()){
-               $.ajax({
-                   type: 'POST',
-                   url: 'Login/signin',
-                   data: {email: email, password: password,remember_me:remember_me},
-                   cache:false,
-                   dataType: 'json',
-                   beforeSend:function(){
-                       $('#btnLogin').attr('disabled', 'disabled');
-                   },
-                   success:function (response) {
-                       $('#btnLogin').attr('disabled', false);
-                        if (response.status == 1){
-                            window.location = 'Home';
-                            $('#signin')[0].reset();
-                        } else {
-                            $('.form-message').css('display','block')
-                            $('.form-message').html('<p>' + response.message + '</p>')
-                        }
-                   }
-               })
-            }
+           if(!validForm()){
+               event.preventDefault();
+           }
         })
         function validForm() {
             var email = $('#email').val();
             var password = $('#password').val();
             if (!validEmail(email)){
-                $('.form-message').css('display','block')
-                $('.form-message').html('<p class="">'+'Invalid Email! please try again'+'</p>' )
                 return false
             } else if (!validPassword(password)){
-                $('.form-message').css('display','block')
-                $('.form-message').html('<p class="">'+'Invalid Password! please try again'+'</p>' )
                 return false
             }
             return true

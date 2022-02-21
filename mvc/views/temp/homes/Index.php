@@ -31,7 +31,7 @@
                                                 <div class="attachments">
                                                     <ul>
                                                         <li>
-                                                            <i class="fa fa-music"></i>
+                                                            <i class="fa fa-youtube-square"></i>
                                                             <label class="fileContainer">
                                                                 <input type="file">
                                                             </label>
@@ -42,18 +42,18 @@
                                                                 <input type="file">
                                                             </label>
                                                         </li>
-                                                        <li>
-                                                            <i class="fa fa-video-camera"></i>
-                                                            <label class="fileContainer">
-                                                                <input type="file">
-                                                            </label>
-                                                        </li>
-                                                        <li>
-                                                            <i class="fa fa-camera"></i>
-                                                            <label class="fileContainer">
-                                                                <input type="file">
-                                                            </label>
-                                                        </li>
+<!--                                                        <li>-->
+<!--                                                            <i class="fa fa-video-camera"></i>-->
+<!--                                                            <label class="fileContainer">-->
+<!--                                                                <input type="file">-->
+<!--                                                            </label>-->
+<!--                                                        </li>-->
+<!--                                                        <li>-->
+<!--                                                            <i class="fa fa-camera"></i>-->
+<!--                                                            <label class="fileContainer">-->
+<!--                                                                <input type="file">-->
+<!--                                                            </label>-->
+<!--                                                        </li>-->
                                                         <li>
                                                             <button type="submit">Post</button>
                                                         </li>
@@ -72,7 +72,7 @@
                                                     <img src="public/images/resources/friend-avatar10.jpg" alt="">
                                                 </figure>
                                                 <div class="friend-name">
-                                                    <ins><a href="time-line.html" title="">Janice Griffith</a></ins>
+                                                    <ins><a href="time-line.html" title=""><?php echo print_r($_SESSION);?></a></ins>
                                                     <span>published: june,2 2018 19:PM</span>
                                                 </div>
                                                 <div class="post-meta">
