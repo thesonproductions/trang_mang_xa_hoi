@@ -6,11 +6,11 @@ class App{
     protected $params = [];
     public function __construct()
     {
-
         $url = $this->urlProcess();
 
         if (isset($_SESSION['email']) || isset($_COOKIE['email'])){
             $this->callUrl($url);
+
         } else {
             $url[0] = 'Signin';
             $this->callUrl($url);

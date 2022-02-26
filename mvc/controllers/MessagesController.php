@@ -1,12 +1,12 @@
 <?php
 include "BaseController.php";
-class HomeController extends BaseController {
+class MessagesController extends BaseController {
     public function __construct()
     {
         parent::__construct();
     }
     public function index(){
-        $view = "homes/Index";
+        $view = "messages/index";
         $this->view($view,[]);
     }
 }

@@ -24,7 +24,7 @@
                                 <div class="central-meta bdradius">
                                     <div class="new-postbox">
                                         <figure>
-                                            <img src="images/resources/admin2.jpg" alt="">
+                                            <img src="public/images/resources/admin2.jpg" alt="">
                                         </figure>
                                         <div class="newpst-input">
                                             <form method="post">
@@ -70,14 +70,14 @@
                                         <div class="user-post">
                                             <div class="friend-info">
                                                 <figure>
-                                                    <img src="images/resources/friend-avatar10.jpg" alt="">
+                                                    <img src="public/images/resources/friend-avatar10.jpg" alt="">
                                                 </figure>
                                                 <div class="friend-name">
                                                     <ins><a href="time-line.html" title="">Janice Griffith</a></ins>
                                                     <span>published: june,2 2018 19:PM</span>
                                                 </div>
                                                 <div class="post-meta">
-                                                    <img src="images/resources/user-post.jpg" alt="">
+                                                    <img src="public/images/resources/user-post.jpg" alt="">
                                                     <div class="we-video-info">
                                                         <ul>
                                                             <li>
@@ -152,7 +152,7 @@
                                                 <ul class="we-comet">
                                                     <li>
                                                         <div class="comet-avatar">
-                                                            <img src="images/resources/comet-1.jpg" alt="">
+                                                            <img src="public/images/resources/comet-1.jpg" alt="">
                                                         </div>
                                                         <div class="we-comment">
                                                             <div class="coment-head">
@@ -165,7 +165,7 @@
                                                         <ul>
                                                             <li>
                                                                 <div class="comet-avatar">
-                                                                    <img src="images/resources/comet-2.jpg" alt="">
+                                                                    <img src="public/images/resources/comet-2.jpg" alt="">
                                                                 </div>
                                                                 <div class="we-comment">
                                                                     <div class="coment-head">
@@ -178,7 +178,7 @@
                                                             </li>
                                                             <li>
                                                                 <div class="comet-avatar">
-                                                                    <img src="images/resources/comet-3.jpg" alt="">
+                                                                    <img src="public/images/resources/comet-3.jpg" alt="">
                                                                 </div>
                                                                 <div class="we-comment">
                                                                     <div class="coment-head">
@@ -193,7 +193,7 @@
                                                     </li>
                                                     <li>
                                                         <div class="comet-avatar">
-                                                            <img src="images/resources/comet-1.jpg" alt="">
+                                                            <img src="public/images/resources/comet-1.jpg" alt="">
                                                         </div>
                                                         <div class="we-comment">
                                                             <div class="coment-head">
@@ -211,7 +211,7 @@
                                                     </li>
                                                     <li class="post-comment">
                                                         <div class="comet-avatar">
-                                                            <img src="images/resources/comet-1.jpg" alt="">
+                                                            <img src="public/images/resources/comet-1.jpg" alt="">
                                                         </div>
                                                         <div class="post-comt-box">
                                                             <form method="post">
@@ -245,7 +245,7 @@
                                         <div class="user-post">
                                             <div class="friend-info">
                                                 <figure>
-                                                    <img src="images/resources/nearly1.jpg" alt="">
+                                                    <img src="public/images/resources/nearly1.jpg" alt="">
                                                 </figure>
                                                 <div class="friend-name">
                                                     <ins><a href="time-line.html" title="">Sara Grey</a></ins>
@@ -327,7 +327,7 @@
                                                 <ul class="we-comet">
                                                     <li>
                                                         <div class="comet-avatar">
-                                                            <img src="images/resources/comet-1.jpg" alt="">
+                                                            <img src="public/images/resources/comet-1.jpg" alt="">
                                                         </div>
                                                         <div class="we-comment">
                                                             <div class="coment-head">
@@ -341,7 +341,7 @@
                                                     </li>
                                                     <li>
                                                         <div class="comet-avatar">
-                                                            <img src="images/resources/comet-2.jpg" alt="">
+                                                            <img src="public/images/resources/comet-2.jpg" alt="">
                                                         </div>
                                                         <div class="we-comment">
                                                             <div class="coment-head">
@@ -359,7 +359,7 @@
                                                     </li>
                                                     <li class="post-comment">
                                                         <div class="comet-avatar">
-                                                            <img src="images/resources/comet-2.jpg" alt="">
+                                                            <img src="public/images/resources/comet-2.jpg" alt="">
                                                         </div>
                                                         <div class="post-comt-box">
                                                             <form method="post">
@@ -393,7 +393,7 @@
                                         <div class="user-post">
                                             <div class="friend-info">
                                                 <figure>
-                                                    <img src="images/resources/nearly6.jpg" alt="">
+                                                    <img src="public/images/resources/nearly6.jpg" alt="">
                                                 </figure>
                                                 <div class="friend-name">
                                                     <ins><a href="time-line.html" title="">Sophia</a></ins>
@@ -480,7 +480,7 @@
                                                 <ul class="we-comet">
                                                     <li>
                                                         <div class="comet-avatar">
-                                                            <img src="images/resources/comet-1.jpg" alt="">
+                                                            <img src="public/images/resources/comet-1.jpg" alt="">
                                                         </div>
                                                         <div class="we-comment">
                                                             <div class="coment-head">
@@ -494,7 +494,7 @@
                                                     </li>
                                                     <li>
                                                         <div class="comet-avatar">
-                                                            <img src="images/resources/comet-2.jpg" alt="">
+                                                            <img src="public/images/resources/comet-2.jpg" alt="">
                                                         </div>
                                                         <div class="we-comment">
                                                             <div class="coment-head">
@@ -512,7 +512,7 @@
                                                     </li>
                                                     <li class="post-comment">
                                                         <div class="comet-avatar">
-                                                            <img src="images/resources/comet-2.jpg" alt="">
+                                                            <img src="public/images/resources/comet-2.jpg" alt="">
                                                         </div>
                                                         <div class="post-comt-box">
                                                             <form method="post">
@@ -546,7 +546,7 @@
                                         <div class="user-post">
                                             <div class="friend-info">
                                                 <figure>
-                                                    <img alt="" src="images/resources/friend-avatar10.jpg">
+                                                    <img alt="" src="public/images/resources/friend-avatar10.jpg">
                                                 </figure>
                                                 <div class="friend-name">
                                                     <ins><a title="" href="time-line.html">Janice Griffith</a></ins>
@@ -561,7 +561,7 @@
                                                 </div>
                                                 <div class="post-meta">
                                                     <div class="linked-image align-left">
-                                                        <a title="" href="#"><img alt="" src="images/resources/page1.jpg"></a>
+                                                        <a title="" href="#"><img alt="" src="public/images/resources/page1.jpg"></a>
                                                     </div>
                                                     <div class="detail">
                                                         <span>Love Maid - ChillGroves</span>

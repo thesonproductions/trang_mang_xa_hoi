@@ -72,7 +72,7 @@
                                                     <img src="public/images/resources/friend-avatar10.jpg" alt="">
                                                 </figure>
                                                 <div class="friend-name">
-                                                    <ins><a href="time-line.html" title=""><?php echo print_r($_SESSION);?></a></ins>
+                                                    <ins><a href="time-line.html" title="">Ethan Kaylly</a></ins>
                                                     <span>published: june,2 2018 19:PM</span>
                                                 </div>
                                                 <div class="post-meta">

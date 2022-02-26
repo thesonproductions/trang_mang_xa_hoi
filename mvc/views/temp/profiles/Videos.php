@@ -1,4 +1,6 @@
-<?php require_once "mvc/views/temp/Profiles.php"; ?>
+<div class="theme-layout">
+    <?php include "mvc/views/temp/TopBar.php"; ?>
+    <?php include "mvc/views/temp/Profiles.php"; ?>
 <section>
     <div class="gap gray-bg">
         <div class="container">

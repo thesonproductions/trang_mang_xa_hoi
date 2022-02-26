@@ -43,6 +43,7 @@ class SigninController extends BaseController{
         echo json_encode($response);
     }
     public function signin(){
+
         $email = $_POST['email'];
         $password = $_POST['password'];
 //        $remember = $_POST['remember_me'];
@@ -51,15 +52,15 @@ class SigninController extends BaseController{
         $arr = $obj->readUser($email,$password);
         if (!empty($arr)){
             if (isset($_POST['remember_me'])){
-                setcookie('email',$email,time()+864000);
-                setcookie('password',$password,time()+864000);
-//                echo print_r($_COOKIE);
-//                die();
-                header('location: ../index.php');
+                $_SESSION['email'] = $email;
+                $_SESSION['password'] = $password;
+
+                header('location: ../home');
             } else {
                 $_SESSION['email'] = $email;
                 $_SESSION['password'] = $password;
-                header('location: ../index.php');
+
+                header('location: ../home');
             }
         }else{
             setcookie('error_message','Account does not Exist!',time()+1);

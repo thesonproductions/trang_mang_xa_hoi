@@ -3,39 +3,39 @@
     <ul class="naves">
         <li>
             <i class="ti-clipboard"></i>
-            <a href="newsfeed.html" title="">News feed</a>
+            <a href="Home" title="">News feed</a>
         </li>
         <li>
             <i class="ti-user"></i>
-            <a href="timeline-friends.html" title="">profile</a>
+            <a href="Profile" title="">profile</a>
         </li>
         <li>
             <i class="fa fa-group"></i>
-            <a href="timeline-friends.html" title="">friends</a>
+            <a href="Profile/friend" title="">friends</a>
         </li>
         <li>
             <i class="ti-image"></i>
-            <a href="timeline-photos.html" title="">images</a>
+            <a href="Profile/photos" title="">images</a>
         </li>
         <li>
             <i class="ti-video-camera"></i>
-            <a href="timeline-videos.html" title="">videos</a>
+            <a href="Profile/videos" title="">videos</a>
         </li>
         <li>
             <i class="ti-comment-alt"></i>
-            <a href="messages.html" title="">Messages</a>
+            <a href="messages" title="">Messages</a>
         </li>
         <li>
             <i class="ti-bell"></i>
-            <a href="notifications.html" title="">Notifications</a>
+            <a href="notification" title="">Notifications</a>
         </li>
         <li>
             <i class="ti-settings"></i>
-            <a title="" href="edit-account-setting.html">account setting</a>
+            <a title="" href="Profile/editProfile">account setting</a>
         </li>
         <li>
             <i class="ti-power-off"></i>
-            <a href="landing.html" title="">Logout</a>
+            <a href="Signin/logout" title="">Logout</a>
         </li>
     </ul>
 </div>

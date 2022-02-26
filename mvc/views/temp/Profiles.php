@@ -35,12 +35,12 @@
                                 <h5>Janice Griffith</h5>
                             </li>
                             <li>
-                                <a class="<?php if ($url[1] == "index"){echo "active";} ?>" href="time-line.html" title="" data-ripple="">time line</a>
-                                <a class="<?php if ($url[1] == "Photos"){echo "active";} ?>" href="Profile/photos" title="" data-ripple="">Photos</a>
-                                <a class="<?php if ($url[1] == "index"){echo "active";} ?>" href="timeline-videos.html" title="" data-ripple="">Videos</a>
-                                <a class="<?php if ($url[1] == "index"){echo "active";} ?>" href="timeline-friends.html" title="" data-ripple="">Friends</a>
-                                <a class="<?php if ($url[1] == "index"){echo "active";} ?>" href="about.html" title="" data-ripple="">about</a>
-                                <a class="<?php if ($url[1] == "index"){echo "active";} ?>" href="#" title="" data-ripple="">more</a>
+                                <a class="<?php echo ($data['active']=="timeline") ? "active" : "";?>" href="Profile" title="" data-ripple="">Time line</a>
+                                <a class="<?php echo ($data['active']=="photos") ? "active" : "";?>" href="Profile/photos" title="" data-ripple="">Photos</a>
+                                <a class="<?php echo ($data['active']=="videos") ? "active" : "";?>" href="Profile/videos" title="" data-ripple="">Videos</a>
+                                <a class="<?php echo ($data['active']=="friends") ? "active" : "";?>" href="Profile/friend" title="" data-ripple="">Friends</a>
+                                <a class="<?php echo ($data['active']=="abouts") ? "active" : "";?>" href="Profile/about" title="" data-ripple="">about</a>
+                                <a class="<?php echo ($data['active']=="action") ? "active" : "";?>" href="Profile/editProfile" title="" data-ripple="">more</a>
                             </li>
                         </ul>
                     </div>
