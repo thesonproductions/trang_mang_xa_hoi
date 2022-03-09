@@ -461,7 +461,41 @@ iframe {
 	z-index: 9999;
 	background: url(../images/loader.gif) center no-repeat #fff;
 }*/
-
+/*dropzone*/
+.post-bar{
+    width: 100%;
+    background-color: #f0f2f5;
+    padding: 8px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 5px;
+    padding-left: 25px;
+    transition: 0.5s all ease;
+}
+.post-bar:hover{
+    background-color: #d4d5d9;
+}
+#postFile{
+    display: none;
+    min-height: 150px;
+    border: 2px solid rgba(175, 171, 171, 0.3);
+    background: white;
+    padding: 20px 20px;
+}
+#close{
+    position: absolute;
+    top: 27px;
+    right: 56px;
+    background-color: #e7dada;
+    height: 21px;
+    width: 53px;
+    padding: 0;
+    cursor: pointer;
+}
+#close:hover{
+    background-color: #cbc4c4;
+}
+/*-------*/
 #topcontrol {
     border-radius: 5px;
     color: #fff;
@@ -920,7 +954,7 @@ header.sticky {
 
 .fileContainer {
     color: #d8d8d8;
-    font-size: 11px;
+    font-size: 14px;
     margin: 0 0 0 5px;
     position: relative;
     text-transform: capitalize;
@@ -1365,7 +1399,16 @@ header.sticky {
     float: left;
     width: 100%;
 }
-
+.newpst-input #upload{
+    width: 60px;
+    border: none;
+    background-color: #00bff3;
+    color: white;
+    padding: 0;
+}
+.newpst-input #upload:hover{
+    background-color: #05667f;
+}
 .attachments {
     border: 1px solid #eee;
     display: block;
@@ -1385,7 +1428,10 @@ header.sticky {
     display: inline-block;
     margin-left: 5px;
 }
-
+.onClickPost{
+    background-color: #d0ded0;
+    border-radius: 5px;
+}
 textarea {
     border: 1px solid #eeeeee;
     border-radius: 6px 6px 0 0;
@@ -1402,11 +1448,11 @@ form button {
     padding: 3px 10px;
 }
 
-.attachments .fileContainer [type="file"] {
-    right: 6px;
-    top: -18px;
-    width: 20px;
-}
+/*.attachments .fileContainer [type="file"] {*/
+/*    right: 6px;*/
+/*    top: -18px;*/
+/*    width: 20px;*/
+/*}*/
 
 .friend-info {
     display: inline-block;

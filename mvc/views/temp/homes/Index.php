@@ -3,6 +3,7 @@
     <?php include "mvc/views/temp/TopBar.php"; ?>
 
 
+
     <section>
         <div class="gap gray-bg">
             <div class="container-fluid">
@@ -22,40 +23,26 @@
                             <div class="col-lg-6">
                                 <div class="central-meta bdradius">
                                     <div class="new-postbox">
+
                                         <figure>
                                             <img src="public/images/resources/admin2.jpg" alt="">
                                         </figure>
                                         <div class="newpst-input">
-                                            <form method="post">
-                                                <textarea rows="2" placeholder="write something"></textarea>
+                                            <div class="post-bar">
+                                                <span>What are you thinking ?</span>
+                                            </div>
+                                            <form action="Home/uploadFile" enctype="multipart/form-data" id="postFile" class="dropzone">
+                                                <textarea rows="2" name="content" id="content" placeholder="write something"></textarea>
                                                 <div class="attachments">
                                                     <ul>
                                                         <li>
-                                                            <i class="fa fa-youtube-square"></i>
-                                                            <label class="fileContainer">
-                                                                <input type="file">
-                                                            </label>
+                                                            <a><i class="fa fa-image" style="cursor: pointer;" id="clickPost"></i></a>
                                                         </li>
                                                         <li>
-                                                            <i class="fa fa-image"></i>
-                                                            <label class="fileContainer">
-                                                                <input type="file">
-                                                            </label>
+                                                            <input type="submit" id="upload" name="submit" >
                                                         </li>
-<!--                                                        <li>-->
-<!--                                                            <i class="fa fa-video-camera"></i>-->
-<!--                                                            <label class="fileContainer">-->
-<!--                                                                <input type="file">-->
-<!--                                                            </label>-->
-<!--                                                        </li>-->
-<!--                                                        <li>-->
-<!--                                                            <i class="fa fa-camera"></i>-->
-<!--                                                            <label class="fileContainer">-->
-<!--                                                                <input type="file">-->
-<!--                                                            </label>-->
-<!--                                                        </li>-->
                                                         <li>
-                                                            <button type="submit">Post</button>
+                                                            <button type="button" id="close" name="close">Close</button>
                                                         </li>
                                                     </ul>
                                                 </div>
