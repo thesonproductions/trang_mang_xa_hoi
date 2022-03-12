@@ -50,15 +50,17 @@ class SigninController extends BaseController{
 
         $obj = $this->model('Register');
         $arr = $obj->readUser($email,$password);
+
         if (!empty($arr)){
             if (isset($_POST['remember_me'])){
                 $_SESSION['email'] = $email;
                 $_SESSION['password'] = $password;
-
+                $_SESSION['idUser'] = $arr->id_user;
                 header('location: ../home');
             } else {
                 $_SESSION['email'] = $email;
                 $_SESSION['password'] = $password;
+                $_SESSION['idUser'] = $arr->id_user;
 
                 header('location: ../home');
             }

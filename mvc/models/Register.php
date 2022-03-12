@@ -16,7 +16,7 @@ class Register extends database {
         return $this->execute(array(null,$email,md5($password),$username,$fname,$lname,$gender));
     }
     public function readUser($email,$password){
-        $sql = 'SELECT user.email,user.password 
+        $sql = 'SELECT user.id_user,user.email,user.password 
                 FROM user
                 WHERE user.email = ? AND user.password = ?';
         $this->setQuery($sql);

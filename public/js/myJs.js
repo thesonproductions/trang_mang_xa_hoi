@@ -12,6 +12,8 @@ $(document).ready(function () {
      })
 
      var myDropZone = new Dropzone("#postFile",{
+          url: "Home/uploadFile",
+          method: "POST",
           dictDefaultMessage: "Bạn có thể kéo ảnh hoặc click để chọn",
           maxFiles: 1,
           autoProcessQueue: false,
@@ -24,8 +26,6 @@ $(document).ready(function () {
                this.on('complete', function(file) {
                     var f = file.xhr.response;
                     console.log(file.xhr);
-
-
                });
           },
           addRemoveLinks: true,
@@ -38,11 +38,14 @@ $(document).ready(function () {
                url: 'Home/uploadFile',
                type: 'POST',
                dataType: 'JSON',
+               cache: false,
                data: {content: content},
                success: function (response) {
-                    alert(123);
-
+                    setTimeout(function () {
+                         window.location = "Home";
+                    },1000)
                }
           })
+
      });
 })

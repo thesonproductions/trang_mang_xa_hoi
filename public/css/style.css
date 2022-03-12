@@ -1500,7 +1500,25 @@ form button {
     float: left;
     width: 100%;
 }
+.aricle-post{
+    position: relative;
+    height: 366px;
+    width: 667px;
+    background-color: black;
+    display: flex;
+}
+.post-media-content{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    margin: auto;
 
+}
+.post-media-content-video{
+    height: 100%;
+    width: 100%;
+    margin: auto;
+}
 .description {
     float: left;
     margin-top: 12px;
