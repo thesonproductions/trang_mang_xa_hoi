@@ -81,7 +81,6 @@
                                                         <span>published: <?php echo $value->create_at; ?></span>
                                                     </div>
                                                     <div class="post-meta">
-                                                        <!--                                                            <img src="public/images/resources/user-post.jpg" alt="">-->
                                                         <div class="<?php echo $value->media_content != NULL ? "aricle-post" : ""; ?>">
                                                             <?php
                                                                 if ($value->media_content != NULL) {
@@ -227,7 +226,7 @@
                                                         <?php
                                                             }
                                                         ?>
-                                                        <li>
+                                                        <li id="pre<?php echo $value->id_post; ?>">
                                                             <a style="cursor: pointer;" title="" class="showmore underline more" id="loadMore_<?php echo $value->id_post; ?>">more comments</a>
                                                             <input type="hidden" id="rowMore" value="0">
                                                         </li>

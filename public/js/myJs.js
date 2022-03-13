@@ -90,8 +90,8 @@ $(document).ready(function () {
                success: function (response) {
                     setTimeout(function () {
                          var parent = jQuery(".showmore").parent("li");
-                         $(response).insertBefore(parent);
-                         $('#'+id).text("more comments");
+                         $("#pre"+arr[1]).prepend(response);
+                         $("#"+id).text("more comments");
                     },800);
                }
           })
