@@ -12,16 +12,37 @@ class HomeController extends BaseController
     {
         $contr = $this->model('Models');
         $arr = $contr->getPost($_SESSION['idUser'],$_SESSION['idUser']);
+        $cmt = $this->model('Comments');
+//        $arr1 = $cmt->readComment(0,5);
 //        echo "<pre>";
-//        echo print_r($arr);
+//        echo print_r($arr1);
 //        die();
         $view = "homes/Index";
         $this->view($view, [
             "model"=>$contr,
             "postNew"=>$arr,
+            "m_comment"=>$cmt,
         ]);
 
     }
+
+
+    public function comment(){
+        $arr = array(
+            'status'=>0
+        );
+        $contructor = $this->model('Comments');
+        $userId = $_POST['userId'];
+        $postId = $_POST['postId'];
+        $comment = $_POST['comment'];
+        $result = $contructor->postComment($userId,$postId,$comment);
+        if ($result){
+            $arr['status'] = 1;
+        }
+        echo json_encode($arr);
+    }
+
+
     public function likeUnLike(){
         $keyId = $_SESSION['idUser'];
 //        echo "<pre>";
@@ -29,7 +50,6 @@ class HomeController extends BaseController
 //        die();
         $postId = $_POST['postid'];
         $type = $_POST['type'];
-
         $contr = $this->model('Models');
         $arrCheck = $contr->checkExistUserLike($postId,$keyId);
         if ($arrCheck->cou > 0){
@@ -57,6 +77,8 @@ class HomeController extends BaseController
 
         echo json_encode($arr);
     }
+
+
     public function uploadFile()
     {
         $response = array(
@@ -64,14 +86,14 @@ class HomeController extends BaseController
             'message' => 'An error occurred, please try again'
         );
         $ob = $this->model('Models');
-        if (!empty($_FILES)){
-            //        var_dump($_FILES);
-//        die();
-
         $content = $_POST["content"];
 
         $arr = $ob->getDetailUser($_SESSION['email'], $_SESSION['password']);
         $primeId = $arr->id_user;
+
+
+        if (!empty($_FILES)){
+
         $uploadDir = 'public/images/post/';
         $fileName = $primeId . '-' . rand(1, 100) . $_FILES['file']['name'];
 
@@ -103,8 +125,49 @@ class HomeController extends BaseController
                 }
             }
         }
+        } else {
+            $result = $ob->postFile($primeId, $content, null);
+            if ($result) {
+                $response['message'] = 'Posted successfully, please wait for your friend\'s response';
+            }
         }
 
         echo json_encode($response);
+    }
+
+    public function readMore(){
+        $contructor = $this->model('Comments');
+        $row = $_POST['row'];
+        $postId = $_POST['postId'];
+        $arr = $contructor->readMore($row,$postId);
+
+//        echo "<pre>";
+//        echo print_r($arr);
+//        die();
+
+        $html = '';
+        foreach ($arr as $key => $value){
+            $html .= '<li><div class="comet-avatar"><img src="public/images/resources/comet-1.jpg" alt=""></div>';
+            $html .= '<div class="we-comment"><div class="coment-head"><h5><a href="profile/index/'.$value->id_user.'" title="">Jason borne</a></h5>';
+            $html .= '<span>1 year ago</span><a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a></div><p>'.$value->content.'</p></div><ul>';
+            $reply = $contructor->readReply($value->id,$value->id_post);
+            foreach ($reply as $index => $item){
+                $html .= '<li>
+                            <div class="comet-avatar">
+                                <img src="public/images/resources/comet-3.jpg" alt="">
+                            </div>
+                            <div class="we-comment">
+                                <div class="coment-head">
+                                    <h5><a href="profile/index/'.$item->id_user.'" title="">Olivia</a></h5>
+                                    <span>16 days ago</span>
+                                    <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
+                                </div>
+                                <p>'.$item->content.'</p>
+                            </div>
+                        </li>';
+            }
+            $html .= '</ul></li>';
+        }
+        echo $html;
     }
 }

@@ -82,16 +82,19 @@
                                                     </div>
                                                     <div class="post-meta">
                                                         <!--                                                            <img src="public/images/resources/user-post.jpg" alt="">-->
-                                                        <div class="aricle-post">
-                                                            <?php if ($type[0] == 'image') { ?>
-                                                                <img src="<?php echo $filePath; ?>"
-                                                                     class="post-media-content">
-                                                            <?php } else if ($type[0] == 'video') { ?>
-                                                                <video style="text-align: center"
-                                                                       class="post-media-content-video" controls>
-                                                                    <source src="<?php echo $filePath; ?>"
-                                                                            type="<?php echo $typeMedia; ?>">
-                                                                </video>
+                                                        <div class="<?php echo $value->media_content != NULL ? "aricle-post" : ""; ?>">
+                                                            <?php
+                                                                if ($value->media_content != NULL) {
+                                                            ?>
+                                                                    <?php if ($type[0] == 'image') { ?>
+                                                                        <img src="<?php echo $filePath; ?>" class="post-media-content">
+                                                                    <?php } else if ($type[0] == 'video') { ?>
+                                                                        <video style="text-align: center"
+                                                                               class="post-media-content-video" controls>
+                                                                            <source src="<?php echo $filePath; ?>"
+                                                                                    type="<?php echo $typeMedia; ?>">
+                                                                        </video>
+                                                                    <?php } ?>
                                                             <?php } ?>
                                                         </div>
                                                         <div class="we-video-info">
@@ -168,7 +171,6 @@
                                                                                             class="fa fa-pinterest"></i></a>
                                                                             </div>
                                                                         </div>
-
                                                                     </div>
                                                                 </li>
                                                             </ul>
@@ -183,123 +185,60 @@
                                                 </div>
                                                 <div class="coment-area">
                                                     <ul class="we-comet">
+                                                        <?php
+                                                            $listComment = $data['m_comment']->readComment($value->id_post,0,5);
+                                                            foreach ($listComment as $index => $item){
+                                                        ?>
                                                         <li>
                                                             <div class="comet-avatar">
                                                                 <img src="public/images/resources/comet-1.jpg" alt="">
                                                             </div>
                                                             <div class="we-comment">
                                                                 <div class="coment-head">
-                                                                    <h5><a href="time-line.html" title="">Jason
-                                                                            borne</a>
-                                                                    </h5>
+                                                                    <h5><a href="profile/index/<?php echo $item->id_user; ?>" title="">Jason borne</a></h5>
                                                                     <span>1 year ago</span>
-                                                                    <a class="we-reply" href="#" title="Reply"><i
-                                                                                class="fa fa-reply"></i></a>
+                                                                    <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
                                                                 </div>
-                                                                <p>we are working for the dance and sing songs. this car
-                                                                    is
-                                                                    very awesome for the youngster. please vote this car
-                                                                    and
-                                                                    like our post</p>
+                                                                <p><?php echo $item->content; ?></p>
                                                             </div>
                                                             <ul>
+                                                                <?php
+                                                                    $reply = $data['m_comment']->readReply($item->id,$value->id_post);
+                                                                    foreach ($reply as $idx => $itm){
+                                                                ?>
                                                                 <li>
                                                                     <div class="comet-avatar">
-                                                                        <img src="public/images/resources/comet-2.jpg"
-                                                                             alt="">
+                                                                        <img src="public/images/resources/comet-3.jpg" alt="">
                                                                     </div>
                                                                     <div class="we-comment">
                                                                         <div class="coment-head">
-                                                                            <h5><a href="time-line.html" title="">alexendra
-                                                                                    dadrio</a></h5>
-                                                                            <span>1 month ago</span>
-                                                                            <a class="we-reply" href="#"
-                                                                               title="Reply"><i
-                                                                                        class="fa fa-reply"></i></a>
-                                                                        </div>
-                                                                        <p>yes, really very awesome car i see the
-                                                                            features
-                                                                            of this car in the official website of <a
-                                                                                    href="#" title="">#Mercedes-Benz</a>
-                                                                            and
-                                                                            really impressed :-)</p>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="comet-avatar">
-                                                                        <img src="public/images/resources/comet-3.jpg"
-                                                                             alt="">
-                                                                    </div>
-                                                                    <div class="we-comment">
-                                                                        <div class="coment-head">
-                                                                            <h5><a href="time-line.html"
-                                                                                   title="">Olivia</a>
-                                                                            </h5>
+                                                                            <h5><a href="profile/index/<?php echo $itm->id_user; ?>" title="">Olivia</a></h5>
                                                                             <span>16 days ago</span>
-                                                                            <a class="we-reply" href="#"
-                                                                               title="Reply"><i
-                                                                                        class="fa fa-reply"></i></a>
+                                                                            <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
                                                                         </div>
-                                                                        <p>i like lexus cars, lexus cars are most
-                                                                            beautiful
-                                                                            with the awesome features, but this car is
-                                                                            really outstanding than lexus</p>
+                                                                        <p><?php echo $itm->content; ?></p>
                                                                     </div>
                                                                 </li>
+                                                                <?php
+                                                                    }
+                                                                ?>
                                                             </ul>
                                                         </li>
+                                                        <?php
+                                                            }
+                                                        ?>
                                                         <li>
-                                                            <div class="comet-avatar">
-                                                                <img src="public/images/resources/comet-1.jpg" alt="">
-                                                            </div>
-                                                            <div class="we-comment">
-                                                                <div class="coment-head">
-                                                                    <h5><a href="time-line.html" title="">Donald
-                                                                            Trump</a>
-                                                                    </h5>
-                                                                    <span>1 week ago</span>
-                                                                    <a class="we-reply" href="#" title="Reply"><i
-                                                                                class="fa fa-reply"></i></a>
-                                                                </div>
-                                                                <p>we are working for the dance and sing songs. this
-                                                                    video
-                                                                    is very awesome for the youngster. please vote this
-                                                                    video and like our channel
-                                                                    <i class="em em-smiley"></i>
-                                                                </p>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" title="" class="showmore underline">more
-                                                                comments</a>
+                                                            <a style="cursor: pointer;" title="" class="showmore underline more" id="loadMore_<?php echo $value->id_post; ?>">more comments</a>
+                                                            <input type="hidden" id="rowMore" value="0">
                                                         </li>
                                                         <li class="post-comment">
                                                             <div class="comet-avatar">
                                                                 <img src="public/images/resources/comet-1.jpg" alt="">
                                                             </div>
                                                             <div class="post-comt-box">
-                                                                <form method="post">
-                                                                    <textarea
-                                                                            placeholder="Post your comment"></textarea>
-                                                                    <div class="add-smiles">
-                                                                    <span class="em em-expressionless"
-                                                                          title="add icon"></span>
-                                                                    </div>
-                                                                    <div class="smiles-bunch">
-                                                                        <i class="em em---1"></i>
-                                                                        <i class="em em-smiley"></i>
-                                                                        <i class="em em-anguished"></i>
-                                                                        <i class="em em-laughing"></i>
-                                                                        <i class="em em-angry"></i>
-                                                                        <i class="em em-astonished"></i>
-                                                                        <i class="em em-blush"></i>
-                                                                        <i class="em em-disappointed"></i>
-                                                                        <i class="em em-worried"></i>
-                                                                        <i class="em em-kissing_heart"></i>
-                                                                        <i class="em em-rage"></i>
-                                                                        <i class="em em-stuck_out_tongue"></i>
-                                                                    </div>
-                                                                    <button type="submit" id="postComment"></button>
+                                                                <form method="post" id="postComment">
+                                                                    <textarea placeholder="Post your comment" id="postComment_<?php echo $keyId; ?>_<?php echo $value->id_post; ?>" class="postCmt"></textarea>
+                                                                    <button type="submit"></button>
                                                                 </form>
                                                             </div>
                                                         </li>
