@@ -9,6 +9,7 @@ class Models extends database {
         $this->setQuery($sql);
         return $this->loadRow(array($email,md5($password)));
     }
+
     public function postFile($primeId,$content,$filename){
         $timestamp = time();
         $dat = date("F d, Y h:i:s", $timestamp);
@@ -16,6 +17,7 @@ class Models extends database {
         $this->setQuery($sql);
         return $this->execute(array(null,$primeId,$content,$filename,$dat));
     }
+
     public function getPost($keyId){
         $sql = 'SELECT *
                 FROM (SELECT post.id_user as id,user.username,post.id_post,post.content,post.media_content,post.create_at,post.updated_at
@@ -61,9 +63,9 @@ class Models extends database {
 
     // them sua xoa trong like
     public function insertIntoLikes($idUser,$postId,$type){
-        $sql = 'INSERT INTO likes VALUES (?,?,?,NOW())';
+        $sql = 'INSERT INTO likes VALUES (?,?,?,?,NOW())';
         $this->setQuery($sql);
-        return $this->execute(array($idUser,$postId,$type));
+        return $this->execute(array(null,$idUser,$postId,$type));
     }
     public function updateIntoLikes($idUser,$postId,$type){
         $sql = "UPDATE likes
@@ -78,4 +80,11 @@ class Models extends database {
         return $this->execute(array($idUser,$postId));
     }
     // ket thua phan like liec cac thu
+    public function readUser($idUser){
+        $sql = 'SELECT *
+                FROM user
+                WHERE user.id_user = ?';
+        $this->setQuery($sql);
+        return $this->loadRow(array($idUser));
+    }
 }

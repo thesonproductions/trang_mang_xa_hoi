@@ -475,12 +475,13 @@ iframe {
 .post-bar:hover{
     background-color: #d4d5d9;
 }
+
 #postFile{
-    display: none;
     min-height: 150px;
     border: 2px solid rgba(175, 171, 171, 0.3);
     background: white;
     padding: 20px 20px;
+    display: none;
 }
 #close{
     position: absolute;
@@ -1453,6 +1454,17 @@ form button {
 /*    top: -18px;*/
 /*    width: 20px;*/
 /*}*/
+.border-avatar{
+    width: 50px;
+    height: 50px;
+
+}
+.border-avatar img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    object-fit: cover;
+}
 
 .friend-info {
     display: inline-block;

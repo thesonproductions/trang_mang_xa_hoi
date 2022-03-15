@@ -11,14 +11,31 @@ $(document).ready(function () {
           $('#postFile').css('display','none');
           $('.post-bar').css('display','block');
      })
-
+     function DoPrevent(e) {
+          e.preventDefault();
+          e.stopPropagation();
+     }
      var myDropZone = new Dropzone("#postFile",{
           url: "Home/uploadFile",
-          method: "POST",
+          method: 'POST',
           dictDefaultMessage: "Bạn có thể kéo ảnh hoặc click để chọn",
           maxFiles: 1,
           autoProcessQueue: false,
           init: function() {
+
+               $('#upload').on('click',function(e) {
+
+                    if (myDropZone.getQueuedFiles().length > 0) {
+                         e.preventDefault();
+                         myDropZone.processQueue();
+                         setTimeout(function () {
+                              window.location = "Home";
+                         },1000)
+                    } else {
+                         $("#postFile").submit();
+                    }
+               });
+
                this.on('addedfile', function(file) {
                     if (this.files.length > 1) {
                          this.removeFile(this.files[0]);
@@ -28,29 +45,25 @@ $(document).ready(function () {
                     var f = file.xhr.response;
                     console.log(file.xhr);
                });
+               this.on("sendingmultiple", function() {
+               });
+               this.on("successmultiple", function(files, response) {
+               });
+               this.on("errormultiple", function(files, response) {
+               });
           },
+
           addRemoveLinks: true,
      })
-     $('#postFile').on('submit',function(e) {
-          e.preventDefault()
-          myDropZone.processQueue();
-          var content = $('#content').val();
-          $.ajax({
-               url: 'Home/uploadFile',
-               type: 'POST',
-               dataType: 'JSON',
-               cache: false,
-               data: {content: content},
-               success: function (response) {
-                    setTimeout(function () {
-                         window.location = "Home";
-                    },1000)
-               }
-          })
+     //
 
-     });
+
+
+
      jQuery(".post-comt-box textarea").on("keydown", function(event) {
 	      if (event.keyCode === 13) {
+	           var detailUser = $('#userDetail').val();
+	           var arr = detailUser.split('/');
 	           var id = this.id
                var split_id = id.split('_');
 		       var comment = jQuery(this).val();
@@ -67,11 +80,12 @@ $(document).ready(function () {
                     }
                })
 		       var parent = jQuery(".showmore").parent("li");
-		       var comment_HTML = '	<li><div class="comet-avatar"><img src="public/images/resources/comet-1.jpg" alt=""></div><div class="we-comment"><div class="coment-head"><h5><a href="time-line.html" title="">Jason borne</a></h5><span>1 year ago</span><a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a></div><p>'+comment+'</p></div></li>';
+		       var comment_HTML = '	<li><div class="comet-avatar"><div class="border-avatar"><img src="public/images/avatar/'+arr[0]+'" alt=""></div></div><div class="we-comment"><div class="coment-head"><h5><a href="profile/index/'+arr[1]+'" title="">'+arr[3]+'</a></h5><span>'+arr[2]+'</span><a class="we-reply reply-button" style="cursor: pointer;" title="Reply"><i class="fa fa-reply"></i></a></div><p>'+comment+'</p></div></li>';
 		       $(comment_HTML).insertBefore(parent);
 		       jQuery(this).val('');
 	      }
      });
+
      $('.more').click(function () {
           var id = this.id;
           var arr = id.split('_');
@@ -95,5 +109,5 @@ $(document).ready(function () {
                     },800);
                }
           })
-     })
+     });
 })

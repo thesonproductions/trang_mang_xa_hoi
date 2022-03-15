@@ -77,10 +77,10 @@ class HomeController extends BaseController
 
         echo json_encode($arr);
     }
-
-
+    //----------------------------------------------------------------
     public function uploadFile()
     {
+
         $response = array(
             'status' => 0,
             'message' => 'An error occurred, please try again'
@@ -94,71 +94,78 @@ class HomeController extends BaseController
 
         if (!empty($_FILES)){
 
-        $uploadDir = 'public/images/post/';
-        $fileName = $primeId . '-' . rand(1, 100) . $_FILES['file']['name'];
+            $uploadDir = 'public/images/post/';
+            $fileName = $primeId . '-' . rand(1, 100) . $_FILES['file']['name'];
 
-        $PATH = $uploadDir.$fileName;
+            $PATH = $uploadDir.$fileName;
 
-        $videoExtension = array("mp4","avi","3gp","mov","mpeg");
-        $maxsize = 52428800;
-        $imageExtension = array('jpg', 'png', 'jpeg', 'gif');
+            $videoExtension = array("mp4","avi","3gp","mov","mpeg");
+            $maxsize = 52428800;
+            $imageExtension = array('jpg', 'png', 'jpeg', 'gif');
 
-        $fileType = strtolower(pathinfo($fileName,PATHINFO_EXTENSION));
-        $status = 0;
-        if ($_FILES['file']['size'] > $maxsize){
-            $response['status'] = 0;
-            $response['message'] = 'The size is too large, please try again';
-        }
-         if (in_array($fileType,$imageExtension)){
-             $status = 1;
-         } else if (in_array($fileType,$videoExtension)){
-             $status = 1;
-         }
+            $fileType = strtolower(pathinfo($fileName,PATHINFO_EXTENSION));
+            $status = 0;
+            if ($_FILES['file']['size'] > $maxsize){
+                $response['status'] = 0;
+                $response['message'] = 'The size is too large, please try again';
+            }
+            if (in_array($fileType,$imageExtension)){
+                $status = 1;
+            } else if (in_array($fileType,$videoExtension)){
+                $status = 1;
+            }
 
-        if ($status != 0){
-            if (move_uploaded_file($_FILES['file']['tmp_name'], $PATH)) {
-                $response['status'] = 1;
-                $result = $ob->postFile($primeId, $content, $fileName);
+            if ($status != 0){
+                if (move_uploaded_file($_FILES['file']['tmp_name'], $PATH)) {
+                    $result = $ob->postFile($primeId, $content, $fileName);
 
-                if ($result) {
-                    $response['message'] = 'Posted successfully, please wait for your friend\'s response';
+                    if ($result) {
+                        $response['message'] = 'Posted successfully, please wait for your friend\'s response';
+                    }
                 }
             }
-        }
         } else {
             $result = $ob->postFile($primeId, $content, null);
             if ($result) {
                 $response['message'] = 'Posted successfully, please wait for your friend\'s response';
             }
         }
-
-        echo json_encode($response);
+        header('location: Home');
     }
+    //---------------------------------------------------/
+    public function uploadContent(){
 
+        $arr = $ob->getDetailUser($_SESSION['email'], $_SESSION['password']);
+        $primeId = $arr->id_user;
+    }
     public function readMore(){
         $contructor = $this->model('Comments');
         $row = $_POST['row'];
         $postId = $_POST['postId'];
         $arr = $contructor->readMore($row,$postId);
-
+        $model = $this->model('Models');
 //        echo "<pre>";
 //        echo print_r($arr);
 //        die();
 
         $html = '';
         foreach ($arr as $key => $value){
-            $html .= '<li><div class="comet-avatar"><img src="public/images/resources/comet-1.jpg" alt=""></div>';
-            $html .= '<div class="we-comment"><div class="coment-head"><h5><a href="profile/index/'.$value->id_user.'" title="">Jason borne</a></h5>';
+            $detail = $model->readUser($value->id_user);
+            $html .= '<li><div class="comet-avatar"><div class="border-avatar"><img src="public/images/avatar/'.$detail->avatar.'" alt=""></div></div>';
+            $html .= '<div class="we-comment"><div class="coment-head"><h5><a href="profile/index/'.$value->id_user.'" title="">'.$detail->username.'</a></h5>';
             $html .= '<span>1 year ago</span><a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a></div><p>'.$value->content.'</p></div><ul>';
             $reply = $contructor->readReply($value->id,$value->id_post);
             foreach ($reply as $index => $item){
-                $html .= '<li>
+                $detailReply = $model->readUser($item->id_user);
+                $html .= '<li style="margin-bottom: 20px;">
                             <div class="comet-avatar">
-                                <img src="public/images/resources/comet-3.jpg" alt="">
+                                <div class="border-avatar">
+                                    <img src="public/images/avatar/'.$detailReply->avatar.'" alt="">
+                                </div>
                             </div>
                             <div class="we-comment">
                                 <div class="coment-head">
-                                    <h5><a href="profile/index/'.$item->id_user.'" title="">Olivia</a></h5>
+                                    <h5><a href="profile/index/'.$item->id_user.'" title="">'.$detailReply->username.'</a></h5>
                                     <span>16 days ago</span>
                                     <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
                                 </div>

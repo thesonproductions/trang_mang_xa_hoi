@@ -22,16 +22,17 @@
                             <div class="col-lg-6">
                                 <div class="central-meta bdradius">
                                     <div class="new-postbox">
-
                                         <figure>
-                                            <img src="public/images/resources/admin2.jpg" alt="">
+                                            <div class="border-avatar">
+                                                <img src="public/images/avatar/<?php echo ($data['model']->readUser($keyId)->avatar == NULL) ? 'unknownUser.jpg' : $data['model']->readUser($keyId)->avatar; ?>" alt="">
+                                            </div>
                                         </figure>
                                         <div class="newpst-input">
                                             <div class="post-bar">
                                                 <span>What are you thinking ?</span>
                                             </div>
                                             <form action="Home/uploadFile" enctype="multipart/form-data" id="postFile"
-                                                  class="dropzone">
+                                                  class="dropzone" method="POST">
                                                 <textarea rows="2" name="content" id="content"
                                                           placeholder="write something"></textarea>
                                                 <div class="attachments">
@@ -74,7 +75,9 @@
                                             <div class="user-post">
                                                 <div class="friend-info">
                                                     <figure>
-                                                        <img src="public/images/resources/friend-avatar10.jpg" alt="">
+                                                        <div class="border-avatar">
+                                                            <img src="public/images/avatar/<?php echo ($data['model']->readUser($value->id)->avatar == NULL) ? 'unknownUser.jpg' : $data['model']->readUser($value->id)->avatar; ?>" alt="">
+                                                        </div>
                                                     </figure>
                                                     <div class="friend-name">
                                                         <ins><a href="profile/index/<?php echo $value->id; ?>" title=""><?php echo $value->username; ?></a></ins>
@@ -122,54 +125,6 @@
                                                                     <div class="menu">
                                                                         <div class="btn trigger"><i
                                                                                     class="fa fa-share-alt"></i></div>
-                                                                        <div class="rotater">
-                                                                            <div class="btn btn-icon"><a href="#"
-                                                                                                         title=""><i
-                                                                                            class="fa fa-html5"></i></a>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="rotater">
-                                                                            <div class="btn btn-icon"><a href="#"
-                                                                                                         title=""><i
-                                                                                            class="fa fa-facebook"></i></a>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="rotater">
-                                                                            <div class="btn btn-icon"><a href="#"
-                                                                                                         title=""><i
-                                                                                            class="fa fa-google-plus"></i></a>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="rotater">
-                                                                            <div class="btn btn-icon"><a href="#"
-                                                                                                         title=""><i
-                                                                                            class="fa fa-twitter"></i></a>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="rotater">
-                                                                            <div class="btn btn-icon"><a href="#"
-                                                                                                         title=""><i
-                                                                                            class="fa fa-css3"></i></a>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="rotater">
-                                                                            <div class="btn btn-icon"><a href="#"
-                                                                                                         title=""><i
-                                                                                            class="fa fa-instagram"></i></a>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="rotater">
-                                                                            <div class="btn btn-icon"><a href="#"
-                                                                                                         title=""><i
-                                                                                            class="fa fa-dribbble"></i></a>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="rotater">
-                                                                            <div class="btn btn-icon"><a href="#"
-                                                                                                         title=""><i
-                                                                                            class="fa fa-pinterest"></i></a>
-                                                                            </div>
-                                                                        </div>
                                                                     </div>
                                                                 </li>
                                                             </ul>
@@ -190,13 +145,17 @@
                                                         ?>
                                                         <li>
                                                             <div class="comet-avatar">
-                                                                <img src="public/images/resources/comet-1.jpg" alt="">
+                                                                <div class="border-avatar" style="width: 45px;height: 45px;">
+                                                                    <img src="public/images/avatar/<?php echo ($data['model']->readUser($item->id_user)->avatar == NULL) ? 'unknownUser.jpg' : $data['model']->readUser($item->id_user)->avatar; ?>" alt="">
+                                                                </div>
                                                             </div>
                                                             <div class="we-comment">
                                                                 <div class="coment-head">
-                                                                    <h5><a href="profile/index/<?php echo $item->id_user; ?>" title="">Jason borne</a></h5>
+                                                                    <h5><a href="profile/index/<?php echo $item->id_user; ?>" title=""><?php echo $data['model']->readUser($item->id_user)->username; ?></a></h5>
                                                                     <span>1 year ago</span>
-                                                                    <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
+                                                                    <a class="we-reply reply-button" style="cursor: pointer" href="#<?php echo $value->id_post; ?>" title="Reply" id="reply_<?php echo $item->id; ?>_<?php echo $value->id_post; ?>_<?php echo $keyId; ?>_<?php echo $data['model']->readUser($item->id_user)->username; ?>">
+                                                                        <i class="fa fa-reply"></i>
+                                                                    </a>
                                                                 </div>
                                                                 <p><?php echo $item->content; ?></p>
                                                             </div>
@@ -211,9 +170,9 @@
                                                                     </div>
                                                                     <div class="we-comment">
                                                                         <div class="coment-head">
-                                                                            <h5><a href="profile/index/<?php echo $itm->id_user; ?>" title="">Olivia</a></h5>
+                                                                            <h5><a href="profile/index/<?php echo $itm->id_user; ?>" title=""><?php echo $data['model']->readUser($itm->id_user)->username; ?></a></h5>
                                                                             <span>16 days ago</span>
-                                                                            <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
+                                                                            <a class="we-reply reply-button" href="#<?php echo $value->id_post; ?>" title="Reply" id="reply_<?php echo $itm->id; ?>_<?php echo $value->id_post; ?>_<?php echo $keyId; ?>_<?php echo $data['model']->readUser($itm->id_user)->username; ?>"><i class="fa fa-reply"></i></a>
                                                                         </div>
                                                                         <p><?php echo $itm->content; ?></p>
                                                                     </div>
@@ -229,12 +188,13 @@
                                                         <li id="pre<?php echo $value->id_post; ?>">
                                                             <a style="cursor: pointer;" title="" class="showmore underline more" id="loadMore_<?php echo $value->id_post; ?>">more comments</a>
                                                             <input type="hidden" id="rowMore" value="0">
+                                                            <input type="hidden" id="userDetail" value="<?php echo ($data['model']->readUser($value->id)->avatar == NULL) ? 'unknownUser.jpg' : $data['model']->readUser($value->id)->avatar; ?>/<?php echo $value->id; ?>/<?php echo $value->updated_at; ?>/<?php echo $value->username; ?>">
                                                         </li>
                                                         <li class="post-comment">
                                                             <div class="comet-avatar">
                                                                 <img src="public/images/resources/comet-1.jpg" alt="">
                                                             </div>
-                                                            <div class="post-comt-box">
+                                                            <div class="post-comt-box" id="<?php echo $value->id_post; ?>">
                                                                 <form method="post" id="postComment">
                                                                     <textarea placeholder="Post your comment" id="postComment_<?php echo $keyId; ?>_<?php echo $value->id_post; ?>" class="postCmt"></textarea>
                                                                     <button type="submit"></button>
