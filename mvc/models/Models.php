@@ -80,6 +80,7 @@ class Models extends database {
         return $this->execute(array($idUser,$postId));
     }
     // ket thua phan like liec cac thu
+
     public function readUser($idUser){
         $sql = 'SELECT *
                 FROM user

@@ -68,6 +68,7 @@ $(document).ready(function () {
                var split_id = id.split('_');
 		       var comment = jQuery(this).val();
                var data = {comment: comment, userId: split_id[1],postId: split_id[2]};
+               var lastId;
 		       $.ajax({
                     url: "Home/comment",
                     type: "POST",
@@ -76,13 +77,16 @@ $(document).ready(function () {
                     success: function (response) {
                          if (response.status === 0){
                               alert('An error occurred during the process, please try again');
+                         } else {
+                              lastId = response.id;
+                              var parent = jQuery("#pre"+split_id[2]);
+                              var comment_HTML = '	<li id="last'+response.id+'"><div class="comet-avatar"><div class="border-avatar"><img src="public/images/avatar/'+arr[0]+'" alt=""></div></div><div class="we-comment"><div class="coment-head"><h5><a href="profile/index/'+arr[1]+'" title="">'+arr[3]+'</a></h5><span>'+arr[2]+'</span><a class="we-reply reply-button" style="cursor: pointer;" title="Reply" onclick="deletecomment('+lastId+')"><i class="ti-trash delete" id="delete_'+ lastId +'"></i></a></div><p>'+comment+'</p></div></li>';
+                              $(comment_HTML).insertBefore(parent);
+
                          }
                     }
                })
-		       var parent = jQuery(".showmore").parent("li");
-		       var comment_HTML = '	<li><div class="comet-avatar"><div class="border-avatar"><img src="public/images/avatar/'+arr[0]+'" alt=""></div></div><div class="we-comment"><div class="coment-head"><h5><a href="profile/index/'+arr[1]+'" title="">'+arr[3]+'</a></h5><span>'+arr[2]+'</span><a class="we-reply reply-button" style="cursor: pointer;" title="Reply"><i class="fa fa-reply"></i></a></div><p>'+comment+'</p></div></li>';
-		       $(comment_HTML).insertBefore(parent);
-		       jQuery(this).val('');
+               jQuery(this).val('');
 	      }
      });
 
@@ -104,10 +108,60 @@ $(document).ready(function () {
                success: function (response) {
                     setTimeout(function () {
                          var parent = jQuery(".showmore").parent("li");
-                         $("#pre"+arr[1]).prepend(response);
+                         $("#last"+row).after(response);
                          $("#"+id).text("more comments");
                     },800);
                }
           })
      });
+
+     $('.delete').click(function () {
+          var id = this.id;
+          idCmt = id.split('_');
+
+          if(confirm("Are you sure you want to delete this comment?")) {
+               $.ajax({
+                    url: 'Home/deleteComment',
+                    data: {idCmt: idCmt[1]},
+                    type: 'POST',
+                    dataType: "JSON",
+                    success: function (response) {
+                         $('#last'+idCmt[1]).remove();
+                    }
+               })
+          }
+
+     })
+
+     $('.post').click(function () {
+          var id = this.id;
+          id = id.split('_')[1];
+          if(confirm("Are you sure you want to delete this post ?")) {
+
+               $.ajax({
+                    url: 'Home/deletePost',
+                    data: {id: id},
+                    type: 'POST',
+                    success: function (response) {
+                        window.location= "Home";
+                    }
+               })
+          }
+     })
 })
+function deletecomment(id) {
+
+     if(confirm("Are you sure you want to delete this comment ?")) {
+
+          $.ajax({
+               url: 'Home/deleteComment',
+               data: {idCmt: id},
+               type: 'POST',
+               dataType: "JSON",
+               success: function (response) {
+                    $('#last'+id).remove();
+               }
+          })
+     }
+
+}

@@ -120,14 +120,53 @@
 																    <i class="<?php echo ($status == 0) ? "fa fa-heartbeat" : "ti-heart-broken"; ?>" id="uiconlike_<?php echo $value->id_post; ?>"></i>
 																    <ins id="uappear_<?php echo $value->id_post; ?>"><?php echo $unLike->cou; ?></ins>
 															</span>
+
                                                                 </li>
+
                                                                 <li class="social-media">
                                                                     <div class="menu">
                                                                         <div class="btn trigger"><i
                                                                                     class="fa fa-share-alt"></i></div>
                                                                     </div>
                                                                 </li>
+                                                                <li style="float: right">
+                                                                  <ul>
+                                                                      <li style="<?php echo ($value->id != $keyId) ? 'display: none;' : ''; ?>">
+                                                                           <span class="deletePost" data-toggle="tooltip" title="delete" >
+																            <i class="ti ti-trash post" style="cursor: pointer;" id="delete_<?php echo $value->id_post; ?>"></i>
+															                </span>
+                                                                      </li>
+                                                                      <li></li>
+                                                                  </ul>
+                                                                </li>
                                                             </ul>
+                                                        </div>
+                                                        <div class="editPost">
+                                                            <!-- Button trigger modal -->
+                                                            <button type="button" class="btn btn-primary click-models" data-toggle="modal" data-target="#exampleModal">
+                                                                Launch demo modal
+                                                            </button>
+
+                                                            <!-- Modal -->
+                                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            ...
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                         <div class="description">
 
@@ -143,7 +182,7 @@
                                                             $listComment = $data['m_comment']->readComment($value->id_post,0,5);
                                                             foreach ($listComment as $index => $item){
                                                         ?>
-                                                        <li>
+                                                        <li id="last<?php echo $item->id; ?>">
                                                             <div class="comet-avatar">
                                                                 <div class="border-avatar" style="width: 45px;height: 45px;">
                                                                     <img src="public/images/avatar/<?php echo ($data['model']->readUser($item->id_user)->avatar == NULL) ? 'unknownUser.jpg' : $data['model']->readUser($item->id_user)->avatar; ?>" alt="">
@@ -152,35 +191,13 @@
                                                             <div class="we-comment">
                                                                 <div class="coment-head">
                                                                     <h5><a href="profile/index/<?php echo $item->id_user; ?>" title=""><?php echo $data['model']->readUser($item->id_user)->username; ?></a></h5>
-                                                                    <span>1 year ago</span>
-                                                                    <a class="we-reply reply-button" style="cursor: pointer" href="#<?php echo $value->id_post; ?>" title="Reply" id="reply_<?php echo $item->id; ?>_<?php echo $value->id_post; ?>_<?php echo $keyId; ?>_<?php echo $data['model']->readUser($item->id_user)->username; ?>">
-                                                                        <i class="fa fa-reply"></i>
+                                                                    <span><?php echo $item->create_at; ?></span>
+                                                                    <a class="we-reply reply-button" style="cursor: pointer" title="Reply">
+                                                                        <i class="<?php echo ($keyId == $item->id_user) ? 'ti-trash delete' : '' ;?>" id="delete_<?php echo $item->id; ?>"></i>
                                                                     </a>
                                                                 </div>
                                                                 <p><?php echo $item->content; ?></p>
                                                             </div>
-                                                            <ul>
-                                                                <?php
-                                                                    $reply = $data['m_comment']->readReply($item->id,$value->id_post);
-                                                                    foreach ($reply as $idx => $itm){
-                                                                ?>
-                                                                <li>
-                                                                    <div class="comet-avatar">
-                                                                        <img src="public/images/resources/comet-3.jpg" alt="">
-                                                                    </div>
-                                                                    <div class="we-comment">
-                                                                        <div class="coment-head">
-                                                                            <h5><a href="profile/index/<?php echo $itm->id_user; ?>" title=""><?php echo $data['model']->readUser($itm->id_user)->username; ?></a></h5>
-                                                                            <span>16 days ago</span>
-                                                                            <a class="we-reply reply-button" href="#<?php echo $value->id_post; ?>" title="Reply" id="reply_<?php echo $itm->id; ?>_<?php echo $value->id_post; ?>_<?php echo $keyId; ?>_<?php echo $data['model']->readUser($itm->id_user)->username; ?>"><i class="fa fa-reply"></i></a>
-                                                                        </div>
-                                                                        <p><?php echo $itm->content; ?></p>
-                                                                    </div>
-                                                                </li>
-                                                                <?php
-                                                                    }
-                                                                ?>
-                                                            </ul>
                                                         </li>
                                                         <?php
                                                             }
@@ -188,7 +205,7 @@
                                                         <li id="pre<?php echo $value->id_post; ?>">
                                                             <a style="cursor: pointer;" title="" class="showmore underline more" id="loadMore_<?php echo $value->id_post; ?>">more comments</a>
                                                             <input type="hidden" id="rowMore" value="0">
-                                                            <input type="hidden" id="userDetail" value="<?php echo ($data['model']->readUser($value->id)->avatar == NULL) ? 'unknownUser.jpg' : $data['model']->readUser($value->id)->avatar; ?>/<?php echo $value->id; ?>/<?php echo $value->updated_at; ?>/<?php echo $value->username; ?>">
+                                                            <input type="hidden" id="userDetail" value="<?php echo ($data['model']->readUser($keyId)->avatar == NULL) ? 'unknownUser.jpg' : $data['model']->readUser($keyId)->avatar; ?>/<?php echo $keyId; ?>/<?php echo $value->updated_at; ?>/<?php echo $data['model']->readUser($keyId)->username; ?>">
                                                         </li>
                                                         <li class="post-comment">
                                                             <div class="comet-avatar">

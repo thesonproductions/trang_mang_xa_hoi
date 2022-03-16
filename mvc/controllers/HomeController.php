@@ -29,15 +29,17 @@ class HomeController extends BaseController
 
     public function comment(){
         $arr = array(
-            'status'=>0
+            'status'=>0,
+            'id'=>-1
         );
         $contructor = $this->model('Comments');
         $userId = $_POST['userId'];
         $postId = $_POST['postId'];
         $comment = $_POST['comment'];
         $result = $contructor->postComment($userId,$postId,$comment);
-        if ($result){
+        if ($result != -1){
             $arr['status'] = 1;
+            $arr['id'] = $result;
         }
         echo json_encode($arr);
     }
@@ -133,48 +135,42 @@ class HomeController extends BaseController
         header('location: Home');
     }
     //---------------------------------------------------/
-    public function uploadContent(){
-
-        $arr = $ob->getDetailUser($_SESSION['email'], $_SESSION['password']);
-        $primeId = $arr->id_user;
-    }
     public function readMore(){
         $contructor = $this->model('Comments');
         $row = $_POST['row'];
         $postId = $_POST['postId'];
+
+        $arr = $this->model('Models')->getDetailUser($_SESSION['email'], $_SESSION['password']);
+        $keyId = $arr->id_user;
+
         $arr = $contructor->readMore($row,$postId);
         $model = $this->model('Models');
-//        echo "<pre>";
-//        echo print_r($arr);
-//        die();
 
         $html = '';
         foreach ($arr as $key => $value){
             $detail = $model->readUser($value->id_user);
-            $html .= '<li><div class="comet-avatar"><div class="border-avatar"><img src="public/images/avatar/'.$detail->avatar.'" alt=""></div></div>';
+            $html .= '<li id="last'.$value->id.'"><div class="comet-avatar"><div class="border-avatar"><img src="public/images/avatar/'.$detail->avatar.'" alt=""></div></div>';
             $html .= '<div class="we-comment"><div class="coment-head"><h5><a href="profile/index/'.$value->id_user.'" title="">'.$detail->username.'</a></h5>';
-            $html .= '<span>1 year ago</span><a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a></div><p>'.$value->content.'</p></div><ul>';
-            $reply = $contructor->readReply($value->id,$value->id_post);
-            foreach ($reply as $index => $item){
-                $detailReply = $model->readUser($item->id_user);
-                $html .= '<li style="margin-bottom: 20px;">
-                            <div class="comet-avatar">
-                                <div class="border-avatar">
-                                    <img src="public/images/avatar/'.$detailReply->avatar.'" alt="">
-                                </div>
-                            </div>
-                            <div class="we-comment">
-                                <div class="coment-head">
-                                    <h5><a href="profile/index/'.$item->id_user.'" title="">'.$detailReply->username.'</a></h5>
-                                    <span>16 days ago</span>
-                                    <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
-                                </div>
-                                <p>'.$item->content.'</p>
-                            </div>
-                        </li>';
-            }
-            $html .= '</ul></li>';
+            $html .= '<span>'.$value->create_at.'</span><a class="we-reply" title="Reply"><i class="'.(($keyId == $value->id_user) ? 'ti-trash delete' : '').'" id="delete_'.$value->id.'"></i></a></div><p>'.$value->content.'</p></div>';
+            $html .= '</li>';
         }
         echo $html;
+    }
+
+    public function deleteComment(){
+        $idCmt = $_POST['idCmt'];
+        $contructor = $this->model('Comments');
+        $result = $contructor->deleteUser($idCmt);
+        if ($result){
+            $arr = array('status'=>1);
+        }
+        echo json_encode($arr);
+    }
+    public function deletePost(){
+        $id = $_POST['id'];
+        $contructor = $this->model('Comments');
+        $result = $contructor->deletePost($id);
+
+        echo $result;
     }
 }
