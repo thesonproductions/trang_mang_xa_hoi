@@ -52,18 +52,22 @@ class SigninController extends BaseController{
         $arr = $obj->readUser($email,$password);
 
         if (!empty($arr)){
-            if (isset($_POST['remember_me'])){
-                $_SESSION['email'] = $email;
-                $_SESSION['password'] = $password;
-                $_SESSION['idUser'] = $arr->id_user;
-                header('location: ../home');
-            } else {
-                $_SESSION['email'] = $email;
-                $_SESSION['password'] = $password;
-                $_SESSION['idUser'] = $arr->id_user;
+           if ($arr->status == 1){
+               if (isset($_POST['remember_me'])){
+                   $_SESSION['email'] = $email;
+                   $_SESSION['password'] = $password;
+                   $_SESSION['idUser'] = $arr->id_user;
+                   header('location: ../home');
+               } else {
+                   $_SESSION['email'] = $email;
+                   $_SESSION['password'] = $password;
+                   $_SESSION['idUser'] = $arr->id_user;
 
-                header('location: ../home');
-            }
+                   header('location: ../home');
+               }
+           } else {
+               require_once "mvc/views/errors/404.php";
+           }
         }else{
             setcookie('error_message','Account does not Exist!',time()+1);
             header('location: index');

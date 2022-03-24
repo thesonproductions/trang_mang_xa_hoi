@@ -9,9 +9,7 @@
                     <div class="row" id="page-contents">
                         <div class="col-lg-3">
 
-                            <aside class="sidebar static">
-                                <?php include "mvc/views/temp/EditInfor.php"; ?>
-                            </aside>
+
                         </div>
                         <!-- sidebar -->
                         <div class="col-lg-6">
@@ -20,7 +18,15 @@
                                     <div class="personal">
                                         <h5 class="f-title"><i class="ti-info-alt"></i> Personal Info</h5>
                                         <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                            <?php
+                                            if (($top->readWork($_GET['id'])) != null) {
+                                                $work = $top->readWork($_GET['id']);
+                                                if (isset($work->description)) {
+                                                    $work = json_decode($work->description);
+                                                }
+                                                echo $work->desc;
+                                            }
+                                            ?>
                                         </p>
                                     </div>
                                     <div class="d-flex flex-row mt-2">
@@ -29,49 +35,78 @@
                                                 <a href="#basic" class="nav-link active" data-toggle="tab">Basic info</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="#location" class="nav-link" data-toggle="tab">location</a>
-                                            </li>
-                                            <li class="nav-item">
                                                 <a href="#work" class="nav-link" data-toggle="tab">work and education</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="#interest" class="nav-link" data-toggle="tab">interests</a>
+                                                <a href="#interest" class="nav-link" data-toggle="tab">address</a>
                                             </li>
-                                            <li class="nav-item">
-                                                <a href="#lang" class="nav-link" data-toggle="tab">languages</a>
-                                            </li>
+<!--                                            <li class="nav-item">-->
+<!--                                                <a href="#lang" class="nav-link" data-toggle="tab">languages</a>-->
+<!--                                            </li>-->
                                         </ul>
                                         <div class="tab-content">
                                             <div class="tab-pane fade show active" id="basic">
                                                 <ul class="basics">
-                                                    <li><i class="ti-user"></i>sarah grey</li>
-                                                    <li><i class="ti-map-alt"></i>live in Dubai</li>
-                                                    <li><i class="ti-mobile"></i>+1-234-345675</li>
+                                                    <li><i class="ti-user"></i><?php echo $ob->readUser($_GET['id'])->f_name.' '.$ob->readUser($_GET['id'])->l_name; ?></li>
+                                                    <li><i class="ti-map-alt"></i><?php echo isset($ob->readUser($_GET['id'])->address) ? $ob->readUser($_GET['id'])->address : ''; ?></li>
+                                                    <li><i class="ti-mobile"></i><?php echo isset($ob->readUser($_GET['id'])->phone_number) ? '+'.$ob->readUser($_GET['id'])->phone_number : ''; ?></li>
                                                     <li><i class="ti-email"></i><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3c4553494e515d55507c59515d5550125f5351">[email&#160;protected]</a></li>
-                                                    <li><i class="ti-world"></i>www.yoursite.com</li>
+                                                    <li><i class="ti-world"></i>www.Winku.com</li>
                                                 </ul>
-                                            </div>
-                                            <div class="tab-pane fade" id="location" role="tabpanel">
-                                                <div class="location-map">
-                                                    <div id="map-canvas"></div>
-                                                </div>
                                             </div>
                                             <div class="tab-pane fade" id="work" role="tabpanel">
                                                 <div>
 
                                                     <a href="#" title="">Envato</a>
-                                                    <p>work as autohr in envato themeforest from 2013</p>
+                                                    <p><?php
+                                                        $tex = '';
+                                                        if (($top->readWork($_GET['id'])) != null) {
+                                                            $work = $top->readWork($keyId);
+                                                            if (isset($work->description)) {
+                                                                $work = json_decode($work->description);
+                                                            }
+
+                                                            if (isset($work->isStudy)) {
+                                                                $tex .= $work->isStudy . ', ';
+                                                            }
+                                                            if (isset($work->graduate)) {
+                                                                $tex .= $work->graduate . ', ';
+                                                            }
+                                                            if (isset($work->masters)) {
+                                                                $tex .= $work->masters . ' ';
+                                                            }
+                                                            if (isset($work->study)) {
+                                                                $tex .= $work->study;
+                                                            }
+                                                        }
+
+                                                        echo $tex;
+                                                        ?></p>
                                                     <ul class="education">
-                                                        <li><i class="ti-facebook"></i> BSCS from Oxford University</li>
-                                                        <li><i class="ti-twitter"></i> MSCS from Harvard Unversity</li>
+                                                        <li><i class="ti-twitter"></i> <a href="profile/index.php?id=<?php echo $_GET['id']; ?>">follow me</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="interest" role="tabpanel">
                                                 <ul class="basics">
-                                                    <li>Footbal</li>
-                                                    <li>internet</li>
-                                                    <li>photography</li>
+                                                    <?php
+                                                    if (($top->readWork($_GET['id'])) != null) {
+                                                        $work = $top->readWork($keyId);
+                                                        if (isset($work->description)) {
+                                                            $work = json_decode($work->description);
+                                                        }
+
+                                                        if (isset($work->isStudy)) {
+                                                            echo "<li>".$work->isStudy."</li>";
+                                                        }
+                                                        if (isset($work->graduate)) {
+                                                            echo "<li>".$work->graduate."</li>";
+                                                        }
+                                                        if (isset($work->masters)) {
+                                                            echo "<li>".$work->masters."</li>";
+                                                        }
+                                                    }
+                                                    ?>
                                                 </ul>
                                             </div>
                                             <div class="tab-pane fade" id="lang" role="tabpanel">
@@ -88,10 +123,7 @@
                         </div>
                         <!-- centerl meta -->
                         <div class="col-lg-3">
-                            <aside class="sidebar static">
-                               <?php include "mvc/views/temp/FriendSuggest.php";?>
-                                <!-- who's following -->
-                            </aside>
+
                         </div>
                         <!-- sidebar -->
                     </div>

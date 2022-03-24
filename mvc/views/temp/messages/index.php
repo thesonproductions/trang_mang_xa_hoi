@@ -20,9 +20,10 @@
                                     <h5 class="f-title"><i class="ti-bell"></i>All Messages <span class="more-options"><i class="fa fa-ellipsis-h"></i></span></h5>
                                     <div class="message-box">
                                         <ul class="peoples">
-
                                             <li>
-
+                                                <input type="text" style="border: 1px solid #e1e8ed;border-radius: 3px;" placeholder="Search Friends" >
+                                            </li>
+                                            <li>
                                                 <figure>
                                                     <img src="public/images/resources/friend-avatar2.jpg" alt="">
                                                     <span class="status f-online"></span>
@@ -32,7 +33,6 @@
                                                 </div>
                                             </li>
                                             <li>
-
                                                 <figure><img src="public/images/resources/friend-avatar3.jpg" alt="">
                                                     <span class="status f-away"></span>
                                                 </figure>
@@ -41,7 +41,6 @@
                                                 </div>
                                             </li>
                                             <li>
-
                                                 <figure>
                                                     <img src="public/images/resources/friend-avatar.jpg" alt="">
                                                     <span class="status f-online"></span>
@@ -52,7 +51,6 @@
                                                 </div>
                                             </li>
                                             <li>
-
                                                 <figure><img src="public/images/resources/friend-avatar4.jpg" alt="">
                                                     <span class="status off-online"></span>
                                                 </figure>
@@ -61,7 +59,6 @@
                                                 </div>
                                             </li>
                                             <li>
-
                                                 <figure><img src="public/images/resources/friend-avatar5.jpg" alt="">
                                                     <span class="status f-online"></span>
                                                 </figure>
@@ -70,7 +67,6 @@
                                                 </div>
                                             </li>
                                             <li>
-
                                                 <figure><img src="public/images/resources/friend-avatar6.jpg" alt="">
                                                     <span class="status f-away"></span>
                                                 </figure>
@@ -79,7 +75,6 @@
                                                 </div>
                                             </li>
                                             <li>
-
                                                 <figure><img src="public/images/resources/friend-avatar7.jpg" alt="">
                                                     <span class="status off-online"></span>
                                                 </figure>
@@ -88,7 +83,6 @@
                                                 </div>
                                             </li>
                                             <li>
-
                                                 <figure><img src="public/images/resources/friend-avatar8.jpg" alt="">
                                                     <span class="status f-online"></span>
                                                 </figure>
@@ -97,7 +91,6 @@
                                                 </div>
                                             </li>
                                             <li>
-
                                                 <figure><img src="public/images/resources/friend-avatar6.jpg" alt="">
                                                     <span class="status f-online"></span>
                                                 </figure>

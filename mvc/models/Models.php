@@ -31,6 +31,16 @@ class Models extends database {
         $this->setQuery($sql);
         return $this->loadAllRows(array($keyId,$keyId));
     }
+
+    public function getPostOfuser($iduser){
+        $sql = 'SELECT post.id_user as id,user.username,post.id_post,post.content,post.media_content,post.create_at,post.updated_at
+                FROM post,user
+                WHERE post.id_user = user.id_user AND user.id_user = ?
+                ORDER BY updated_at DESC';
+        $this->setQuery($sql);
+        return $this->loadAllRows(array($iduser));
+    }
+
     // day la phan su li cac doan like
     public function countUnLike($postId){
         $sql = 'SELECT COUNT(likes.id_user) as cou
@@ -87,5 +97,25 @@ class Models extends database {
                 WHERE user.id_user = ?';
         $this->setQuery($sql);
         return $this->loadRow(array($idUser));
+    }
+
+    public function readPostById($idPost){
+        $sql = 'SELECT * FROM post WHERE  post.id_post = ?';
+        $this->setQuery($sql);
+        return $this->loadRow(array($idPost));
+    }
+    public function editPost($idPost,$content,$mediaContent){
+        $sql = 'UPDATE post
+                SET post.content = ?, post.media_content = ?, post.updated_at = NOW()
+                WHERE post.id_post = ?';
+        $this->setQuery($sql);
+        return $this->loadRow(array($content,$mediaContent,$idPost));
+    }
+    public function editPostWithoutFile($idPost,$content){
+        $sql = 'UPDATE post
+                SET post.content = ?, post.updated_at = NOW()
+                WHERE post.id_post = ?';
+        $this->setQuery($sql);
+        return $this->execute(array($content,$idPost));
     }
 }

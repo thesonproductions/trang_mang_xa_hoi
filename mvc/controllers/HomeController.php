@@ -13,10 +13,7 @@ class HomeController extends BaseController
         $contr = $this->model('Models');
         $arr = $contr->getPost($_SESSION['idUser'],$_SESSION['idUser']);
         $cmt = $this->model('Comments');
-//        $arr1 = $cmt->readComment(0,5);
-//        echo "<pre>";
-//        echo print_r($arr1);
-//        die();
+
         $view = "homes/Index";
         $this->view($view, [
             "model"=>$contr,
@@ -150,7 +147,7 @@ class HomeController extends BaseController
         foreach ($arr as $key => $value){
             $detail = $model->readUser($value->id_user);
             $html .= '<li id="last'.$value->id.'"><div class="comet-avatar"><div class="border-avatar"><img src="public/images/avatar/'.$detail->avatar.'" alt=""></div></div>';
-            $html .= '<div class="we-comment"><div class="coment-head"><h5><a href="profile/index/'.$value->id_user.'" title="">'.$detail->username.'</a></h5>';
+            $html .= '<div class="we-comment"><div class="coment-head"><h5><a href="profile/index.php?id='.$value->id_user.'" title="">'.$detail->username.'</a></h5>';
             $html .= '<span>'.$value->create_at.'</span><a class="we-reply" title="Reply"><i class="'.(($keyId == $value->id_user) ? 'ti-trash delete' : '').'" id="delete_'.$value->id.'"></i></a></div><p>'.$value->content.'</p></div>';
             $html .= '</li>';
         }
@@ -169,8 +166,51 @@ class HomeController extends BaseController
     public function deletePost(){
         $id = $_POST['id'];
         $contructor = $this->model('Comments');
+
+        $model = $this->model('Models');
+        $post = $model->readPostById($id);
+
+        $file_name = $post->media_content;
+        $folder="public/images/post/";
+        $file_name=$folder."".$file_name;
+
+        unlink($file_name);
+
         $result = $contructor->deletePost($id);
 
         echo $result;
+    }
+    public function editPost(){
+        $model = $this->model('Models');
+        $content = $_POST['contentEdit'];
+        $idPost = $_POST['idPostEdit'];
+
+        $post = $model->readPostById($idPost);
+
+        if (!$_FILES['editFile']['name']){
+            $result = $model->editPostWithoutFile($idPost,$content);
+        } else {
+
+            if ($_FILES['editFile']['error']==0) {
+                $file_name = $post->id_user . '-' . rand(1, 100) .$_FILES['editFile']['name'];
+            } else {
+                echo "<script>alert('error')</script>";
+                header('location: index');
+            }
+
+            $folder="public/images/post/";
+
+            unlink($folder.''.($post->media_content));
+
+            if (move_uploaded_file($_FILES['editFile']['tmp_name'],$folder.''.$file_name)){
+                $result = $model->editPost($idPost,$content,$file_name);
+            }
+
+        }
+
+        if ($result){
+            echo "<script>alert('Update success')</script>";
+        }
+        header('location: index');
     }
 }

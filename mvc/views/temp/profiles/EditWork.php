@@ -11,7 +11,7 @@
                             <aside class="sidebar static">
                                 <?php include "mvc/views/temp/EditInfor.php"; ?>
                                 <!-- settings widget -->
-                                <?php include "mvc/views/temp/RecentPhotos.php"; ?>
+<!--                                --><?php //include "mvc/views/temp/RecentPhotos.php"; ?>
                                 <!-- recent photos-->
                             </aside>
                         </div>
@@ -20,36 +20,43 @@
                             <div class="central-meta bdradius">
                                 <div class="editing-info">
                                     <h5 class="f-title"><i class="ti-info-alt"></i> Edit work & Education</h5>
+                                    <?php
+                                        $infor = $data['models']->readWork($keyId);
+                                        if (isset($infor->description)){
+                                            $infor = json_decode($infor->description);
+                                        }
 
-                                    <form method="post">
+                                        ?>
+                                    <form method="POST" id="editWork" action="profile/updateWork">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" checked="checked"><i class="check-box"></i>Graduate
+                                                <input type="checkbox" <?php echo isset($infor->isStudy) ? 'checked' : '';?> value="isStudy" name="isStudy"><i class="check-box"></i>Study
                                             </label>
                                         </div>
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" checked="checked"><i class="check-box"></i>Masters
+                                                <input type="checkbox" <?php echo isset($infor->graduate) ? 'checked' : '';?> value="graduate" name="graduate"><i class="check-box"></i>Graduate
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" <?php echo isset($infor->masters) ? 'checked' : '';?> value="masters" name="masters"><i class="check-box"></i>Masters
                                             </label>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" id="input" required="required" />
+                                            <input type="text" name="study" value="<?php echo isset($infor->study) ? $infor->study : ''; ?>"/>
                                             <label class="control-label" for="input">Studying at</label><i class="mtrl-select"></i>
                                         </div>
                                         <div class="form-group half">
-                                            <input type="text" required="required" />
+                                            <input type="text" name="from" value="<?php echo isset($infor->from) ? $infor->from : ''; ?>"/>
                                             <label class="control-label" for="input">From</label><i class="mtrl-select"></i>
                                         </div>
-                                        <div class="form-group half">
-                                            <input type="text" required="required" />
-                                            <label class="control-label" for="input">To</label><i class="mtrl-select"></i>
-                                        </div>
                                         <div class="form-group">
-                                            <input type="text" required="required" />
+                                            <input type="text" name="city" value="<?php echo isset($infor->city) ? $infor->city : ''; ?>" />
                                             <label class="control-label" for="input">City</label><i class="mtrl-select"></i>
                                         </div>
                                         <div class="form-group">
-                                            <select>
+                                            <select name="country">
                                                 <option value="country">Country</option>
                                                 <option value="AFG">Afghanistan</option>
                                                 <option value="ALA">Ƭand Islands</option>
@@ -303,12 +310,13 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <textarea rows="4" id="textarea" required="required"></textarea>
+                                            <textarea rows="4" id="textarea" name="desc"><?php echo (isset($infor->desc)) ? $infor->desc : ''; ?></textarea>
                                             <label class="control-label" for="textarea">Description</label><i class="mtrl-select"></i>
                                         </div>
+                                        <input type="hidden" name="getDetailUserId" value="<?php echo $keyId; ?>">
                                         <div class="submit-btns">
-                                            <button type="button" class="mtr-btn"><span>Cancel</span></button>
-                                            <button type="button" class="mtr-btn"><span>Update</span></button>
+                                            <button type="button" class="mtr-btn" onclick="$('form#editWork')[0].reset()"><span>Cancel</span></button>
+                                            <button type="button" class="mtr-btn" onclick="$('#editWork').submit()"><span>Update</span></button>
                                         </div>
                                     </form>
                                 </div>

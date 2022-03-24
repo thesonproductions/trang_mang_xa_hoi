@@ -1,8 +1,6 @@
 <!--<div class="se-pre-con"></div>-->
 <div class="theme-layout">
     <?php include "mvc/views/temp/TopBar.php"; ?>
-
-
     <section>
         <div class="gap gray-bg">
             <div class="container-fluid">
@@ -73,6 +71,7 @@
                                     ?>
                                         <div class="central-meta item bdradius">
                                             <div class="user-post">
+
                                                 <div class="friend-info">
                                                     <figure>
                                                         <div class="border-avatar">
@@ -80,15 +79,15 @@
                                                         </div>
                                                     </figure>
                                                     <div class="friend-name">
-                                                        <ins><a href="profile/index/<?php echo $value->id; ?>" title=""><?php echo $value->username; ?></a></ins>
+                                                        <ins><a href="profile/index.php?id=<?php echo $value->id; ?>" title=""><?php echo $value->username; ?></a></ins>
                                                         <span>published: <?php echo $value->create_at; ?></span>
                                                     </div>
                                                     <div class="post-meta">
                                                         <div class="<?php echo $value->media_content != NULL ? "aricle-post" : ""; ?>">
                                                             <?php
                                                                 if ($value->media_content != NULL) {
-                                                            ?>
-                                                                    <?php if ($type[0] == 'image') { ?>
+
+                                                                     if ($type[0] == 'image') { ?>
                                                                         <img src="<?php echo $filePath; ?>" class="post-media-content">
                                                                     <?php } else if ($type[0] == 'video') { ?>
                                                                         <video style="text-align: center"
@@ -96,8 +95,8 @@
                                                                             <source src="<?php echo $filePath; ?>"
                                                                                     type="<?php echo $typeMedia; ?>">
                                                                         </video>
-                                                                    <?php } ?>
-                                                            <?php } ?>
+                                                                    <?php }
+                                                                 } ?>
                                                         </div>
                                                         <div class="we-video-info">
                                                             <ul>
@@ -112,14 +111,15 @@
                                                                     <span class="like" data-toggle="tooltip" title="like" id="like_<?php echo $value->id_post; ?>">
 																        <i class="<?php echo ($status == 1) ?  "fa fa-heart" : "ti-heart"; ?>" id="iconlike_<?php echo $value->id_post; ?>"></i>
 																        <ins id="appear_<?php echo $value->id_post; ?>"><?php echo $like->cou; ?></ins>
+                                                                        <input type="hidden" value="<?php echo $keyId;?>_<?php echo $value->id_post;?>_<?php echo $value->id; ?>_1">
 															        </span>
                                                                 </li>
                                                                 <li>
-                                                                <span class="dislike" data-toggle="tooltip" id="unLike_<?php echo $value->id_post; ?>"
-                                                                      title="dislike">
+                                                                <span class="dislike" data-toggle="tooltip" id="unLike_<?php echo $value->id_post; ?>" title="dislike">
 																    <i class="<?php echo ($status == 0) ? "fa fa-heartbeat" : "ti-heart-broken"; ?>" id="uiconlike_<?php echo $value->id_post; ?>"></i>
 																    <ins id="uappear_<?php echo $value->id_post; ?>"><?php echo $unLike->cou; ?></ins>
-															</span>
+                                                                     <input type="hidden" value="<?php echo $keyId;?>_<?php echo $value->id_post;?>_<?php echo $value->id; ?>_-1">
+															    </span>
 
                                                                 </li>
 
@@ -136,40 +136,17 @@
 																            <i class="ti ti-trash post" style="cursor: pointer;" id="delete_<?php echo $value->id_post; ?>"></i>
 															                </span>
                                                                       </li>
-                                                                      <li></li>
                                                                   </ul>
                                                                 </li>
                                                             </ul>
                                                         </div>
-                                                        <div class="editPost">
-                                                            <!-- Button trigger modal -->
-                                                            <button type="button" class="btn btn-primary click-models" data-toggle="modal" data-target="#exampleModal">
-                                                                Launch demo modal
+                                                        <div class="editPost" id="edit#$<?php echo $value->id_post; ?>#$<?php echo $value->content; ?>#$<?php echo $filePath ?>#$<?php echo $typeMedia; ?>" style="<?php echo ($value->id != $keyId) ? 'display: none;' : ''; ?>">
+                                                            <button type="button" class=" click-models" data-toggle="modal" data-target="#exampleModal">
+                                                                <i class="ti-pencil-alt"></i>
                                                             </button>
-
                                                             <!-- Modal -->
-                                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                                <div class="modal-dialog" role="document">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                <span aria-hidden="true">&times;</span>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            ...
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                         </div>
                                                         <div class="description">
-
                                                             <p>
                                                                 <?php echo $value->content; ?>
                                                             </p>
@@ -190,7 +167,7 @@
                                                             </div>
                                                             <div class="we-comment">
                                                                 <div class="coment-head">
-                                                                    <h5><a href="profile/index/<?php echo $item->id_user; ?>" title=""><?php echo $data['model']->readUser($item->id_user)->username; ?></a></h5>
+                                                                    <h5><a href="profile/index.php?id=<?php echo $item->id_user; ?>" title=""><?php echo $data['model']->readUser($item->id_user)->username; ?></a></h5>
                                                                     <span><?php echo $item->create_at; ?></span>
                                                                     <a class="we-reply reply-button" style="cursor: pointer" title="Reply">
                                                                         <i class="<?php echo ($keyId == $item->id_user) ? 'ti-trash delete' : '' ;?>" id="delete_<?php echo $item->id; ?>"></i>
@@ -208,12 +185,12 @@
                                                             <input type="hidden" id="userDetail" value="<?php echo ($data['model']->readUser($keyId)->avatar == NULL) ? 'unknownUser.jpg' : $data['model']->readUser($keyId)->avatar; ?>/<?php echo $keyId; ?>/<?php echo $value->updated_at; ?>/<?php echo $data['model']->readUser($keyId)->username; ?>">
                                                         </li>
                                                         <li class="post-comment">
-                                                            <div class="comet-avatar">
-                                                                <img src="public/images/resources/comet-1.jpg" alt="">
+                                                            <div class="comet-avatar" style="height: 50px;width: 50px">
+                                                                <img src="public/images/avatar/<?php echo ($arr->avatar == NULL) ? 'unknownUser.jpg' : $arr->avatar; ?>" alt="" style="max-width: 100%;max-height: 100%">
                                                             </div>
                                                             <div class="post-comt-box" id="<?php echo $value->id_post; ?>">
                                                                 <form method="post" id="postComment">
-                                                                    <textarea placeholder="Post your comment" id="postComment_<?php echo $keyId; ?>_<?php echo $value->id_post; ?>" class="postCmt"></textarea>
+                                                                    <textarea placeholder="Post your comment" id="postComment_<?php echo $keyId; ?>_<?php echo $value->id_post; ?>_<?php echo $value->id; ?>" class="postCmt"></textarea>
                                                                     <button type="submit"></button>
                                                                 </form>
                                                             </div>
@@ -243,3 +220,41 @@
             </div>
         </div>
     </section>
+    <div class="pupop">
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Your Post</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="Home/editPost" enctype="multipart/form-data" id="edit" method="POST">
+                            <div class="form-group">
+                                <label for="content">Write Something</label>
+                                <textarea class="form-control" id="contentEdit" rows="3" name="contentEdit"></textarea>
+                            </div>
+                            <div class="form-group fallback">
+                                <label for="editFile">Edit the file</label>
+                                <input type="file" class="form-control-file" id="editFile" name="editFile">
+                            </div>
+                            <div class="previewFile" style="width: 466px;">
+                                <embed style="max-width: 100%;max-height: 100%;border-radius: 10px;">
+                            </div>
+                            <input type="hidden" name="idPostEdit" id="idPostEdit">
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="btnUpdateSubmit">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="public/js/jquery.js"></script>
+    <script type="text/javascript" src="public/js/dropzone/dropzone.min.js"></script>
+    <script type="text/javascript" src="public/js/uploadDrop.js"></script>

@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('.like, .dislike').click(function () {
+
         var id = this.id;   // Getting Button id
         var split_id = id.split("_");
 
@@ -41,5 +42,18 @@ $(document).ready(function () {
                 }
             }
         })
+        var data = {id_post: postid,type: type};
+        notifications(data)
     })
 })
+function notifications(data) {
+    console.log(data)
+    $.ajax({
+        url: 'Notification/notifications',
+        data: data,
+        type: 'POST',
+        success:function (response) {
+
+        }
+    })
+}

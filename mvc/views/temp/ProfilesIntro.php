@@ -3,15 +3,38 @@
     <ul class="short-profile">
         <li>
             <span>about</span>
-            <p>Hi, i am jhon kates, i am 32 years old and worked as a web developer in microsoft company. </p>
+            <p><?php echo $ob->readUser($_GET['id'])->description; ?></p>
         </li>
         <li>
-            <span>fav tv show</span>
-            <p>Sacred Games, Spartcus Blood, Games of theron</p>
+            <span>Education</span>
+            <p><?php
+                $tex = '';
+                if (($top->readWork($_GET['id'])) != null) {
+                    $work = $top->readWork($keyId);
+                    if (isset($work->description)) {
+                        $work = json_decode($work->description);
+                    }
+
+                    if (isset($work->isStudy)) {
+                        $tex .= $work->isStudy . ', ';
+                    }
+                    if (isset($work->graduate)) {
+                        $tex .= $work->graduate . ', ';
+                    }
+                    if (isset($work->masters)) {
+                        $tex .= $work->masters . ' ';
+                    }
+                    if (isset($work->study)) {
+                        $tex .= $work->study;
+                    }
+                }
+
+                echo $tex;
+                ?></p>
         </li>
         <li>
-            <span>favourit music</span>
-            <p>Justin Biber, Nati Natsha, Shakira</p>
+            <span>Contact me</span>
+            <p>+<?php echo isset($ob->readUser($_GET['id'])->phone_number) ? $ob->readUser($_GET['id'])->phone_number : ''; ?></p>
         </li>
     </ul>
 </div>

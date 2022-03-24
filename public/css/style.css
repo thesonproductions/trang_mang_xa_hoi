@@ -462,6 +462,40 @@ iframe {
 	background: url(../images/loader.gif) center no-repeat #fff;
 }*/
 /*dropzone*/
+#image-preview {
+    height: 250px;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+    color: #ecf0f1;
+}
+#image-preview input {
+    line-height: 200px;
+    font-size: 200px;
+    position: absolute;
+    opacity: 0;
+    z-index: 10;
+}
+#image-preview label {
+    position: absolute;
+    z-index: 5;
+    opacity: 0.8;
+    cursor: pointer;
+    background-color: #bdc3c7;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+    text-transform: uppercase;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+}
+
 .post-bar{
     width: 100%;
     background-color: #f0f2f5;
@@ -1068,7 +1102,7 @@ header.sticky {
     align-items: center;
     width: 250px;
 }
-.minibox-side img{
+.minibox-side .size-avatar img{
     padding-right: 10px;
     border-radius: 50%;
     display: inline-block;
@@ -1448,7 +1482,6 @@ form button {
     font-weight: 600;
     padding: 3px 10px;
 }
-
 /*.attachments .fileContainer [type="file"] {*/
 /*    right: 6px;*/
 /*    top: -18px;*/
@@ -1893,7 +1926,16 @@ for some reason nth-child(1) is always busy and elements starting from 2 */
 
 
 /*--- comment area ---*/
-
+.editPost{
+    position: absolute;
+    right: 10px;
+    padding-top: 2.2%;
+}
+.click-models{
+    background-color: rgba(0,0,0,0);
+    color: black;
+    border: none;
+}
 .coment-area {
     display: inline-block;
     margin-top: 10px;

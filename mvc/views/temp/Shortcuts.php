@@ -7,7 +7,7 @@
         </li>
         <li>
             <i class="ti-user"></i>
-            <a href="Profile" title="">profile</a>
+            <a href="Profile/index.php?id=<?php echo $keyId; ?>" title="">profile</a>
         </li>
         <li>
             <i class="fa fa-group"></i>

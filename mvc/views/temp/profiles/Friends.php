@@ -21,212 +21,56 @@
                             <div class="central-meta bdradius">
                                 <div class="frnds">
                                     <ul class="nav nav-tabs">
-                                        <li class="nav-item"><a class="active" href="#frends" data-toggle="tab">Following</a> <span>55</span></li>
-                                        <li class="nav-item"><a class="" href="#frends-req" data-toggle="tab">Who's Following</a><span>60</span></li>
+                                        <li class="nav-item"><a class="active" href="#frends" data-toggle="tab">Following</a> <span><?php echo count($data['arrFollower']);?></span></li>
+                                        <li class="nav-item"><a class="" href="#frends-req" data-toggle="tab">Who's Following</a><span><?php echo count($data['allFollower']); ?></span></li>
                                     </ul>
 
                                     <!-- Tab panes -->
                                     <div class="tab-content">
                                         <div class="tab-pane active fade show " id="frends">
                                             <ul class="nearby-contct">
+                                                <?php
+                                                    foreach ($data['arrFollower'] as $key => $value) {
+                                                        $detailUser = $data['model']->readUser($value->id_follower);
+                                                ?>
                                                 <li>
                                                     <div class="nearly-pepls">
-                                                        <figure>
-                                                            <a href="time-line.html" title=""><img src="public/images/resources/friend-avatar9.jpg" alt=""></a>
+                                                        <figure style="height: 60px;width: 60px;">
+                                                            <a href="Profile/index.php?id=<?php echo $detailUser->id_user; ?>" title=""><img src="public/images/avatar/<?php echo ($detailUser->avatar == NULL) ? 'unknownUser.jpg' : $detailUser->avatar; ?>" alt="" style="max-width: 100%;max-height: 100%;"></a>
                                                         </figure>
                                                         <div class="pepl-info">
-                                                            <h4><a href="time-line.html" title="">jhon kates</a></h4>
+                                                            <h4><a href="Profile/index.php?id=<?php echo $detailUser->id_user; ?>" title=""><?php echo $detailUser->username; ?></a></h4>
                                                             <span>ftv model</span>
-                                                            <a href="#" title="" class="add-butn more-action" data-ripple="">unFollow</a>
+                                                            <a href="#" class="add-butn addFollow" id="follow_<?php echo $value->id_follower; ?>_<?php echo $keyId; ?>" title="" data-ripple="" style="<?php echo (($keyId == $value->id_follower) ? "display: none" : ""); ?>"><?php echo count($data["user"]->checkExistUser($keyId,$value->id_follower)) == 1 ? 'UnFollow' : 'Follow'; ?></a>
+                                                            <input type="hidden" value="<?php echo count($top->checkExistUser($keyId,$value->id_follower)) == 1 ? 1 : 0; ?>" id="suggest_<?php echo $value->id_follower; ?>">
                                                         </div>
                                                     </div>
                                                 </li>
-                                                <li>
-                                                    <div class="nearly-pepls">
-                                                        <figure>
-                                                            <a href="time-line.html" title=""><img src="public/images/resources/nearly1.jpg" alt=""></a>
-                                                        </figure>
-                                                        <div class="pepl-info">
-                                                            <h4><a href="time-line.html" title="">sophia Gate</a></h4>
-                                                            <span>tv actresses</span>
-                                                            <a href="#" title="" class="add-butn more-action" data-ripple="">unFollow</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="nearly-pepls">
-                                                        <figure>
-                                                            <a href="time-line.html" title=""><img src="public/images/resources/nearly2.jpg" alt=""></a>
-                                                        </figure>
-                                                        <div class="pepl-info">
-                                                            <h4><a href="time-line.html" title="">sara grey</a></h4>
-                                                            <span>work at IBM</span>
-                                                            <a href="#" title="" class="add-butn more-action" data-ripple="">unFollow</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="nearly-pepls">
-                                                        <figure>
-                                                            <a href="time-line.html" title=""><img src="public/images/resources/nearly3.jpg" alt=""></a>
-                                                        </figure>
-                                                        <div class="pepl-info">
-                                                            <h4><a href="time-line.html" title="">Sexy cat</a></h4>
-                                                            <span>Student</span>
-                                                            <a href="#" title="" class="add-butn more-action" data-ripple="">unFollow</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="nearly-pepls">
-                                                        <figure>
-                                                            <a href="time-line.html" title=""><img src="public/images/resources/nearly4.jpg" alt=""></a>
-                                                        </figure>
-                                                        <div class="pepl-info">
-                                                            <h4><a href="time-line.html" title="">Sara grey</a></h4>
-                                                            <span>ftv model</span>
-                                                            <a href="#" title="" class="add-butn more-action" data-ripple="">unFollow</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="nearly-pepls">
-                                                        <figure>
-                                                            <a href="time-line.html" title=""><img src="public/images/resources/nearly5.jpg" alt=""></a>
-                                                        </figure>
-                                                        <div class="pepl-info">
-                                                            <h4><a href="time-line.html" title="">Amy watson</a></h4>
-                                                            <span>Study in university</span>
-                                                            <a href="#" title="" class="add-butn more-action" data-ripple="">unFollow</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="nearly-pepls">
-                                                        <figure>
-                                                            <a href="time-line.html" title=""><img src="public/images/resources/nearly6.jpg" alt=""></a>
-                                                        </figure>
-                                                        <div class="pepl-info">
-                                                            <h4><a href="time-line.html" title="">caty lasbo</a></h4>
-                                                            <span>work as dancers</span>
-                                                            <a href="#" title="" class="add-butn more-action" data-ripple="">unFollow</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="nearly-pepls">
-                                                        <figure>
-                                                            <a href="time-line.html" title=""><img src="public/images/resources/nearly2.jpg" alt=""></a>
-                                                        </figure>
-                                                        <div class="pepl-info">
-                                                            <h4><a href="time-line.html" title="">Ema watson</a></h4>
-                                                            <span>personal business</span>
-                                                            <a href="#" title="" class="add-butn more-action" data-ripple="">unFollow</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
+                                                <?php } ?>
                                             </ul>
                                             <div class="lodmore"><button class="btn-view btn-load-more"></button></div>
                                         </div>
+
                                         <div class="tab-pane fade" id="frends-req">
                                             <ul class="nearby-contct">
-                                                <li>
-                                                    <div class="nearly-pepls">
-                                                        <figure>
-                                                            <a href="time-line.html" title=""><img src="public/images/resources/nearly5.jpg" alt=""></a>
-                                                        </figure>
-                                                        <div class="pepl-info">
-                                                            <h4><a href="time-line.html" title="">Amy watson</a></h4>
-                                                            <span>ftv model</span>
-                                                            <a href="#" title="" class="add-butn" data-ripple="">Follow</a>
+                                                <?php
+                                                foreach ($data['allFollower'] as $key => $value) {
+                                                    $detailUser = $data['model']->readUser($value->id_follower);
+                                                    ?>
+                                                    <li>
+                                                        <div class="nearly-pepls">
+                                                            <figure style="height: 60px;width: 60px;">
+                                                                <a href="Profile/index.php?id=<?php echo $detailUser->id_user; ?>" title=""><img src="public/images/avatar/<?php echo ($detailUser->avatar == NULL) ? 'unknownUser.jpg' : $detailUser->avatar; ?>" alt="" style="max-width: 100%;max-height: 100%;"></a>
+                                                            </figure>
+                                                            <div class="pepl-info">
+                                                                <h4><a href="Profile/index.php?id=<?php echo $detailUser->id_user; ?>" title=""><?php echo $detailUser->username; ?></a></h4>
+                                                                <span>ftv model</span>
+                                                                <a href="#" class="add-butn addFollow" id="follows_<?php echo $value->id_follower; ?>_<?php echo $keyId; ?>" title="" data-ripple="" style="<?php echo (($keyId == $value->id_follower) ? "display: none" : ""); ?>"><?php echo count($data["user"]->checkExistUser($keyId,$value->id_follower)) == 1 ? 'UnFollow' : 'Follow'; ?></a>
+                                                                <input type="hidden" value="<?php echo count($top->checkExistUser($keyId,$value->id_follower)) == 1 ? 1 : 0; ?>" id="suggests_<?php echo $value->id_follower; ?>">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </li>
-
-                                                <li>
-                                                    <div class="nearly-pepls">
-                                                        <figure>
-                                                            <a href="time-line.html" title=""><img src="public/images/resources/nearly1.jpg" alt=""></a>
-                                                        </figure>
-                                                        <div class="pepl-info">
-                                                            <h4><a href="time-line.html" title="">sophia Gate</a></h4>
-                                                            <span>ftv model</span>
-                                                            <a href="#" title="" class="add-butn" data-ripple="">Follow</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="nearly-pepls">
-                                                        <figure>
-                                                            <a href="time-line.html" title=""><img src="public/images/resources/nearly6.jpg" alt=""></a>
-                                                        </figure>
-                                                        <div class="pepl-info">
-                                                            <h4><a href="time-line.html" title="">caty lasbo</a></h4>
-                                                            <span>ftv model</span>
-                                                            <a href="#" title="" class="add-butn" data-ripple="">Follow</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="nearly-pepls">
-                                                        <figure>
-                                                            <a href="time-line.html" title=""><img src="public/images/resources/friend-avatar9.jpg" alt=""></a>
-                                                        </figure>
-                                                        <div class="pepl-info">
-                                                            <h4><a href="time-line.html" title="">jhon kates</a></h4>
-                                                            <span>ftv model</span>
-                                                            <a href="#" title="" class="add-butn" data-ripple="">Follow</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="nearly-pepls">
-                                                        <figure>
-                                                            <a href="time-line.html" title=""><img src="public/images/resources/nearly2.jpg" alt=""></a>
-                                                        </figure>
-                                                        <div class="pepl-info">
-                                                            <h4><a href="time-line.html" title="">sara grey</a></h4>
-                                                            <span>ftv model</span>
-                                                            <a href="#" title="" class="add-butn" data-ripple="">Follow</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="nearly-pepls">
-                                                        <figure>
-                                                            <a href="time-line.html" title=""><img src="public/images/resources/nearly4.jpg" alt=""></a>
-                                                        </figure>
-                                                        <div class="pepl-info">
-                                                            <h4><a href="time-line.html" title="">Sara grey</a></h4>
-                                                            <span>ftv model</span>
-                                                            <a href="#" title="" class="add-butn" data-ripple="">Follow</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="nearly-pepls">
-                                                        <figure>
-                                                            <a href="time-line.html" title=""><img src="public/images/resources/nearly3.jpg" alt=""></a>
-                                                        </figure>
-                                                        <div class="pepl-info">
-                                                            <h4><a href="time-line.html" title="">Sexy cat</a></h4>
-                                                            <span>ftv model</span>
-                                                            <a href="#" title="" class="add-butn" data-ripple="">Follow</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="nearly-pepls">
-                                                        <figure>
-                                                            <a href="time-line.html" title=""><img src="public/images/resources/friend-avatar9.jpg" alt=""></a>
-                                                        </figure>
-                                                        <div class="pepl-info">
-                                                            <h4><a href="time-line.html" title="">jhon kates</a></h4>
-                                                            <span>ftv model</span>
-                                                            <a href="#" title="" class="add-butn" data-ripple="">Follow</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
+                                                    </li>
+                                                <?php } ?>
                                             </ul>
                                             <button class="btn-view btn-load-more"></button>
                                         </div>
