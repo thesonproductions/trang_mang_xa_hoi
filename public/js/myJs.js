@@ -181,6 +181,32 @@ $(document).ready(function () {
           const isStrongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}$/;
           return isStrongPassword.test(password)
      }
+     $('#search-bar').keyup(function () {
+
+          var search = $(this).val();
+          if(search !== '')
+          {
+               load_data(search);
+          }
+          else
+          {
+               load_data();
+          }
+     })
+
+     function load_data(query)
+     {
+          $.ajax({
+               url:"home/search",
+               method:"POST",
+               data:{query:query},
+               success:function(data)
+               {
+                    $('#search-here').html(data);
+               }
+          });
+     }
+
 })
 function deletecomment(id) {
 

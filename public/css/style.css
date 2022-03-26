@@ -1926,6 +1926,20 @@ for some reason nth-child(1) is always busy and elements starting from 2 */
 
 
 /*--- comment area ---*/
+.search-size{
+    display: flex;
+    align-items: center;
+    z-index: 99;
+    background-color: #F4F2F2;
+    width: 383px;
+    border-radius: 5px;
+    padding: 8px;
+    padding-left: 28px;
+    border: 1px solid #e9ecee;
+}
+.search-size:hover{
+    background-color: #bdb9b9;
+}
 .editPost{
     position: absolute;
     right: 10px;

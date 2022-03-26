@@ -118,4 +118,20 @@ class Models extends database {
         $this->setQuery($sql);
         return $this->execute(array($content,$idPost));
     }
+
+    public function search($search){
+        $sql = "SELECT *
+                FROM user
+                WHERE user.username LIKE '%".$search."%' LIMIT 8";
+        $this->setQuery($sql);
+        return $this->loadAllRows();
+    }
+    public function searchNone(){
+        $sql = 'SELECT *
+                FROM user
+                ORDER BY user.id_user
+                LIMIT 8';
+        $this->setQuery($sql);
+        return $this->loadAllRows();
+    }
 }

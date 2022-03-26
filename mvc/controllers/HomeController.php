@@ -213,4 +213,34 @@ class HomeController extends BaseController
         }
         header('location: index');
     }
+
+    public function search(){
+        $conn = $this->model('Models');
+        if (isset($_POST['query'])){
+            $result = $conn->search($_POST['query']);
+        } else {
+            $result = null;
+        }
+//        echo "<pre>";
+//        echo print_r($result);
+//        die();
+        $html = '';
+        if (isset($result)){
+            foreach ($result as $key => $value){
+                $html .= '<li class="search-size list-group-item">
+                            <a href="profile/index.php?id='.$value->id_user.'" style="display: flex;">
+                                <figure style="width: 45px;height: 40px;">
+                                    <img src="public/images/avatar/'.(($value->avatar != null) ? $value->avatar : 'unknownUser.jpg' ).'" style="max-width: 100%;max-height: 100%;object-fit: cover;border-radius: 50%;">
+                                </figure>
+                                <div>
+                                    <p style="color: black;">'.$value->username. '</p>
+                                    <p style="color: #7b7777;position: absolute;top: 30px;">' .$value->email.'</p>
+                                </div>
+                            </a>
+                        </li>';
+            };
+        }
+
+        echo $html;
+    }
 }

@@ -8,10 +8,12 @@
     <div class="top-area">
         <div class="top-search">
             <form method="post" class="">
-                <input type="text" placeholder="Search Friend">
+                <input type="text" placeholder="Search Friend" id="search-bar">
                 <button data-ripple><i class="ti-search"></i></button>
             </form>
+            <ul id="search-here" class="list-group" style="position: absolute;">
 
+            </ul>
         </div>
 
         <ul class="setting-area">
