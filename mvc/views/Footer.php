@@ -48,7 +48,13 @@
             }
 
         });
+        channel.bind('sendChat', function(data) {
+            if (data['message']['idReceive'] === $('#storeIdUser').val()){
+                var total = data['message']['countChat'];
+                $('#totalNotiChat').html(total);
+            }
 
+        });
         // var conn = new WebSocket('ws://localhost:8080');
         // conn.onopen = function(e) {
         //     console.log("Connection established!");

@@ -1,7 +1,6 @@
 
 $(document).ready(function () {
 
-
      $('.post-bar').click(function () {
           $('#postFile').css('display','block');
           $('.post-bar').css('display','none');
@@ -207,6 +206,72 @@ $(document).ready(function () {
           });
      }
 
+     $('.choseChat').click(function () {
+          var id_friend = this.id.split('_')[1];
+          var route;
+          if (this.id.split('_')[0] === 'chatUser'){
+               route = "Messages/appearChatContent";
+          } else {
+               route = "Messages/appearChatContentMini";
+          }
+          $.ajax({
+               url: route,
+               type: "POST",
+               data: {id_receive: id_friend},
+               success: function (response) {
+                    $('.peoples-mesg-box').html(response);
+
+                    $('#send-area').keyup(function (e) {
+                         if (e.keyCode === 13){
+                              $('#send').click();
+                         }
+                    })
+
+                    $('#chat-bar').on('submit',function (e) {
+                         e.preventDefault();
+
+                         var content = $('#send-area').val();
+                         var id_send = $('#idSend').val();
+                         var id_receive = $('#idReceive').val();
+                         $.ajax({
+                              url: "Messages/sendChat",
+                              type: "POST",
+                              data: {content: content,id_send: id_send,id_receive: id_receive},
+                              success: function (response) {
+
+                              }
+                         })
+                         $(".chatting-area").scrollTop($(".chatting-area")[0].scrollHeight);
+                         $('#send-area').val("")
+                    })
+               }
+          })
+
+     })
+
+     setInterval(function(){
+          var id_friend = $('#idReceive').val();
+          $.ajax({
+               url: "Messages/showChat",
+               type: "POST",
+               data: {id_receive: id_friend},
+               success: function(response){
+                    $('.chatting-area').html(response);
+               }
+          });
+     }, 400);
+
+     $('#togeChat').click(function () {
+          var myId = $('#storeIdUser').val();
+          $.ajax({
+               url: "Messages/seenChat",
+               type: "POST",
+               data: {myId: myId},
+               success: function (response) {
+                    $('#totalNotiChat').html(response);
+               }
+          })
+     })
 })
 function deletecomment(id) {
 

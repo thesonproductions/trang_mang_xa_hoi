@@ -19,127 +19,26 @@
                                 <div class="messages">
                                     <h5 class="f-title"><i class="ti-bell"></i>All Messages <span class="more-options"><i class="fa fa-ellipsis-h"></i></span></h5>
                                     <div class="message-box">
-                                        <ul class="peoples">
-                                            <li>
-                                                <input type="text" style="border: 1px solid #e1e8ed;border-radius: 3px;" placeholder="Search Friends" >
-                                            </li>
-                                            <li>
-                                                <figure>
-                                                    <img src="public/images/resources/friend-avatar2.jpg" alt="">
-                                                    <span class="status f-online"></span>
-                                                </figure>
-                                                <div class="people-name">
-                                                    <span>Molly cyrus</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <figure><img src="public/images/resources/friend-avatar3.jpg" alt="">
-                                                    <span class="status f-away"></span>
-                                                </figure>
-                                                <div class="people-name">
-                                                    <span>Andrew</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <figure>
-                                                    <img src="public/images/resources/friend-avatar.jpg" alt="">
-                                                    <span class="status f-online"></span>
-                                                </figure>
 
-                                                <div class="people-name">
-                                                    <span>jason bourne</span>
-                                                </div>
+                                        <ul id="people-list" class="peoples friendz-list">
+                                            <div id="searchDir"></div>
+                                           <?php
+                                           $readList = $data['mess']->readChat($keyId);
+                                           foreach ($readList as $key => $value){
+
+                                           ?>
+                                            <li id="chatUser_<?php echo $value->id_user; ?>" class="choseChat">
+                                               <figure style="height: 50px;width: 50px;">
+                                                   <img src="public/images/avatar/<?php echo ($value->avatar == NULL) ? 'unknownUser.jpg' : $value->avatar; ?>" alt="" style="object-fit: cover;width: 100%;height: 100%">
+                                               </figure>
+                                               <div class="people-name friendz-meta">
+                                                   <span><?php echo $value->username; ?></span>
+                                               </div>
                                             </li>
-                                            <li>
-                                                <figure><img src="public/images/resources/friend-avatar4.jpg" alt="">
-                                                    <span class="status off-online"></span>
-                                                </figure>
-                                                <div class="people-name">
-                                                    <span>Sarah Grey</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <figure><img src="public/images/resources/friend-avatar5.jpg" alt="">
-                                                    <span class="status f-online"></span>
-                                                </figure>
-                                                <div class="people-name">
-                                                    <span>bill doe</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <figure><img src="public/images/resources/friend-avatar6.jpg" alt="">
-                                                    <span class="status f-away"></span>
-                                                </figure>
-                                                <div class="people-name">
-                                                    <span>shen cornery</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <figure><img src="public/images/resources/friend-avatar7.jpg" alt="">
-                                                    <span class="status off-online"></span>
-                                                </figure>
-                                                <div class="people-name">
-                                                    <span>kill bill</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <figure><img src="public/images/resources/friend-avatar8.jpg" alt="">
-                                                    <span class="status f-online"></span>
-                                                </figure>
-                                                <div class="people-name">
-                                                    <span>jasmin walia</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <figure><img src="public/images/resources/friend-avatar6.jpg" alt="">
-                                                    <span class="status f-online"></span>
-                                                </figure>
-                                                <div class="people-name">
-                                                    <span>neclos cage</span>
-                                                </div>
-                                            </li>
+                                            <?php } ?>
                                         </ul>
                                         <div class="peoples-mesg-box">
-                                            <div class="conversation-head">
-                                                <figure><img src="public/images/resources/friend-avatar.jpg" alt=""></figure>
-                                                <span>jason bourne <i>online</i></span>
-                                            </div>
-                                            <ul class="chatting-area">
-                                                <li class="you">
-                                                    <figure><img src="public/images/resources/userlist-2.jpg" alt=""></figure>
-                                                    <p>what's liz short for? :)</p>
-                                                </li>
-                                                <li class="me">
-                                                    <figure><img src="public/images/resources/userlist-1.jpg" alt=""></figure>
-                                                    <p>Elizabeth lol</p>
-                                                </li>
-                                                <li class="me">
-                                                    <figure><img src="public/images/resources/userlist-1.jpg" alt=""></figure>
-                                                    <p>wanna know whats my second guess was?</p>
-                                                </li>
-                                                <li class="you">
-                                                    <figure><img src="public/images/resources/userlist-2.jpg" alt=""></figure>
-                                                    <p>yes</p>
-                                                </li>
-                                                <li class="me">
-                                                    <figure><img src="public/images/resources/userlist-1.jpg" alt=""></figure>
-                                                    <p>Disney's the lizard king</p>
-                                                </li>
-                                                <li class="me">
-                                                    <figure><img src="public/images/resources/userlist-1.jpg" alt=""></figure>
-                                                    <p>i know him 5 years ago</p>
-                                                </li>
-                                                <li class="you">
-                                                    <figure><img src="public/images/resources/userlist-2.jpg" alt=""></figure>
-                                                    <p>coooooooooool dude ;)</p>
-                                                </li>
-                                            </ul>
-                                            <div class="message-text-container">
-                                                <form method="post">
-                                                    <textarea></textarea>
-                                                    <button title="send"><i class="fa fa-paper-plane"></i></button>
-                                                </form>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>

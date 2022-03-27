@@ -4964,6 +4964,9 @@ canvas {
 }
 
 .chat-box.show {
+    position: fixed;
+    bottom: 0;
+    right: 360px;
     transform: translate(0) scale(1);
     opacity: 1;
     visibility: visible;

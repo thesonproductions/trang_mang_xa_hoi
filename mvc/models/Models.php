@@ -126,11 +126,11 @@ class Models extends database {
         $this->setQuery($sql);
         return $this->loadAllRows();
     }
-    public function searchNone(){
+    public function searchNone($keyId){
         $sql = 'SELECT *
                 FROM user
-                ORDER BY user.id_user
-                LIMIT 8';
+                WHERE user.id_user = ?
+                ORDER BY user.id_user';
         $this->setQuery($sql);
         return $this->loadAllRows();
     }

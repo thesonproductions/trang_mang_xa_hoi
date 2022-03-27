@@ -11,7 +11,7 @@ class BaseController {
         return new $model;
     }
     public function view($view, $data = []){
-
+        $mess = $this->model('Messenger');
         $ob = $this->model('Models');
         $notifications = $this->model('Notification');
         $top = $this->model('TopBar');

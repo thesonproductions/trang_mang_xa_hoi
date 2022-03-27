@@ -58,7 +58,7 @@ class NotificationController extends BaseController {
 
             $html .= '<a class="dropdown-item" style="cursor: pointer;">
                     <div class="minibox-side">
-                        <img src="public/images/avatar/'.$ava.'" style="max-height: 100%;max-width: 100%;object-fit: cover;width: 50px;height: 45px">
+                        <img src="public/images/avatar/'.$ava.'" style="max-height: 100%;max-width: 100%;object-fit: cover;width: 50px;height: 45px;border-radius: 50%;">
                         <div style="'.(($noti->status == 1) ? 'font-weight: bold;' : '').'">
                             <h6>'.$detailUser->username.'</h6>
                             <span>'.$a[$noti->type].' your post</span>

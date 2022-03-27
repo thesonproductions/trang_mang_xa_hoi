@@ -73,8 +73,8 @@
                                 <a class="dropdown-item" href="#"> <span><span id="count"><?php echo count($notifications->readNotification($keyId)); ?></span> New Notifications.</span></a>
                             </div>
                         </li>
-                        <li class="nav-item dropdown" style="padding: 0 10px;">
-                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <li class="nav-item dropdown" style="padding: 0 10px;" id="togeChat">
+                            <a class="nav-link" href="Messages" id="navbarDropdown">
                                 <i class="ti-comment"></i><span style="    position: absolute;
     top: 23px;
     right: 10px;
@@ -84,26 +84,8 @@
     width: 15px;
     height: 15px;
     padding: 12px 12px;
-    line-height: 0px;">5</span>
+    line-height: 0px;" id="totalNotiChat"><?php echo count($top->countChat($keyId))==0 ? "" : count($top->countChat($keyId));?></span>
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="scrollmenu" style="overflow: auto;top: 125%;left: -180px;max-height: 294px;">
-                                <a class="dropdown-item" href="#" style="border-bottom: 1px solid #e9ecef;">
-                                    View Messenger
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <div class="minibox-side">
-                                        <img src="public/images/resources/thumb-5.jpg">
-                                        <div>
-                                            <h6>Ngo Ba Kha</h6>
-                                            <span>Hi, how r u dear ...</span>
-                                            <i>2 min ago</i>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"> <span>5 New Messages.</span></a>
-                            </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a class=" nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: flex;align-items: center;">

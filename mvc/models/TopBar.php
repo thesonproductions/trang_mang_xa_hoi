@@ -71,5 +71,12 @@ class TopBar extends database {
         $this->setQuery($sql);
         return $this->loadRow(array($id_user));
     }
+    public function countChat($keyId){
+        $sql = 'SELECT *
+                FROM chats
+                WHERE chats.id_user_receive = ? AND chats.msg_seen = 0';
+        $this->setQuery($sql);
+        return $this->loadAllRows(array($keyId));
+    }
 }
 ?>
